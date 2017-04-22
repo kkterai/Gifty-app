@@ -1,0 +1,19 @@
+A user can login to Gifty as either
+- a gift giver looking for someone to give to
+- as a gift receiver making their wishes known
+
+
+A Giver will search for a person to give to. They will be able to select a Receiver and view the Receiver's wish list.
+- When the Giver decides they want to buy an item, they mark that they want to buy this item.
+  - This mark should be viewable only to the Giver.
+  - The item then goes on the Giver's shopping list.
+  - The Giver must select a location to buy from.
+    - Givers can either select from a list of existing stores which carry that item or find_or_create a new store.
+  - The item will default as "not purchased"; a checkbox can toggle the boolean.
+  - Giver will check the box when an item is purchased.
+
+  - The item will be viewed on the Giver's List per store.
+
+
+A Receiver will make a list of items - they don't care what store they come from.
+- The item remains on the Receiver's wish list until a Giver marks it as purchased on a Giver's list.
