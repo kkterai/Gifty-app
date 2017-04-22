@@ -1,7 +1,9 @@
-A user can login to Gifty as either
-- a gift giver looking for someone to give to
-- as a gift receiver making their wishes known
+1. Integrate basic theme
+2. Allow users to CRUD lists
+  - In Receiver role: Wish list
+  - In Giver role: Gift list
 
+Users can create lists, add items to lists, edit items in lists, delete items from lists, and (Givers) check off items from lists/ (Receivers) see what has been purchased. In sum, it functions as a registry and shopping list app.
 
 A Giver will search for a person to give to. They will be able to select a Receiver and view the Receiver's wish list.
 - When the Giver decides they want to buy an item, they mark that they want to buy this item.
