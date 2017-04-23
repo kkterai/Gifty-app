@@ -1,5 +1,6 @@
 class StoreController < ApplicationController
 
+  before_filter :authorize
   before_action :set_store, only: [:show, :update, :edit]
 
   def index

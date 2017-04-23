@@ -1,10 +1,10 @@
 class User < ApplicationRecord
 
-  enum role: [:giver, :receiver]
-  has_many :lists
-  has_many :items, through: :lists
+  enum role: [:giver, :recipient]
+  has_one :wish_list, class_name: 'List', foreign_key: 'recipient_id'
+  has_many :lists, class_name: 'List', foreign_key: 'giver_id'
 
-  #Products are either desired gifts or products to be shopped for
+  validates :username, :password, :email, presence: true
   has_secure_password
 
 end
