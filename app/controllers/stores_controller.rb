@@ -1,4 +1,4 @@
-class StoreController < ApplicationController
+class StoresController < ApplicationController
 
   before_filter :authorize
   before_action :set_store, only: [:show, :update, :edit]

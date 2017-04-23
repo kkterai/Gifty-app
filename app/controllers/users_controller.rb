@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def new
     @user = User.new
@@ -8,7 +8,7 @@ class UserController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      flash[:notice] = "Welcome #{user.name}!"
+      flash[:notice] = "Welcome #{user.username}!"
       redirect_to '/'
     else
       flash[:alert] = "Uh oh, something's not right"
