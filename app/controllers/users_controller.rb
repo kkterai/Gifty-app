@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome #{user.username}!"
       redirect_to '/'
     else
-      flash[:alert] = "Uh oh, something's not right"
+      flash[:alert] = user.errors.full_messages.to_sentence
       redirect_to '/signup'
     end
   end
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end

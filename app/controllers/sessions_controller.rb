@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome #{user.username}!"
       redirect_to '/'
     else
-      flash[:alert] = "Uh oh, something's not right"
+      flash[:alert] = "Uh oh, we didn't find a match. please try again."
       redirect_to '/login'
     end
   end
