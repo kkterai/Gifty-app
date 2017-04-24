@@ -11,7 +11,7 @@
   <body>
     <div class="navbar-header">
       <% if current_user %>
-        Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
+        Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %> | <%= link_to "Home", '/home' %> | <%= link_to "My Wish List", "/lists/#{current_user.id}" %> | <a href='#'> Find Friends</a>
       <% else %>
         <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
       <% end %>
