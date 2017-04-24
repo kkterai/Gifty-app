@@ -7,19 +7,8 @@
   <%= item.name %>
 <% end %>
 
-
 <h2> Add Items </h2>
-<%= form_for(@list) do |f| %>
-
-  <div class="field">
-    <%= f.fields_for :items do |item_builder| %>
-      <%= item_builder.label "New Item Name" %>
-      <%= item_builder.text_field :name %>
-    <% end %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
+<%= form_for([@list, @item]) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit style: "display: none" %>
 <% end %>
