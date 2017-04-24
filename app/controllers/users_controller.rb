@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Welcome #{user.username}!"
-      redirect_to '/'
+      redirect_to '/home'
     else
       flash[:alert] = user.errors.full_messages.to_sentence
       redirect_to '/signup'

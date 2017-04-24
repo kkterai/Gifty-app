@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome #{user.username}!"
-      redirect_to '/'
+      redirect_to '/home'
     else
       flash[:alert] = "Uh oh, we didn't find a match. please try again."
       redirect_to '/login'
