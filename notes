@@ -3,12 +3,12 @@
   - In Receiver role: Wish list
   - In Giver role: Gift list
 
-Users can create lists, add items to lists, edit items in lists, delete items from lists, and (Givers) check off items from lists/ (Receivers) see what has been purchased. In sum, it functions as a registry and shopping list app.
+Users can select items from other users' wish lists and check off items when they are purchased/ (Receivers) see what has been purchased. In sum, it functions as a registry and shopping list app.
 
 A Giver will search for a person to give to. They will be able to select a Receiver and view the Receiver's wish list.
-- When the Giver decides they want to buy an item, they mark that they want to buy this item.
+- When the Giver decides they want to buy an item, they check that they want to buy this item.
   - This mark should be viewable only to the Giver.
-  - The item then goes on the Giver's shopping list.
+  - The item then goes on the Giver's "list."
   - The Giver must select a location to buy from.
     - Givers can either select from a list of existing stores which carry that item or find_or_create a new store.
   - The item will default as "not purchased"; a checkbox can toggle the boolean.

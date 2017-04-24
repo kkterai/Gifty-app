@@ -1,9 +1,8 @@
 class CreateLists < ActiveRecord::Migration[5.0]
   def change
     create_table :lists do |t|
-      t.references :giver
-      t.references :recipient
-      t.timestamps
+      t.string :name
+      t.integer :user_id
     end
   end
 end

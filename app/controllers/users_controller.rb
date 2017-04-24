@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+      user.create_list(name: "My Wish List")
       flash[:notice] = "Welcome #{user.username}!"
       redirect_to '/home'
     else

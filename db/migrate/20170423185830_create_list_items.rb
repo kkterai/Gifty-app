@@ -1,8 +1,8 @@
 class CreateListItems < ActiveRecord::Migration[5.0]
   def change
     create_table :list_items do |t|
-      t.references :lists
-      t.references :items
+      t.references :list
+      t.references :item
       t.timestamps
     end
   end
