@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 
-  before_filter :authorize
+  before_action :authorize
   before_action :set_list, only: [:show, :update, :edit]
 
   def index
