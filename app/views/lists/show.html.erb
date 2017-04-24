@@ -2,4 +2,24 @@
 <h1> This is my wish list </h1>
 
 <br>
-New item
+
+<% @list.items.each do |item| %>
+  <%= item.name %>
+<% end %>
+
+
+<h2> Add Items </h2>
+<%= form_for(@list) do |f| %>
+
+  <div class="field">
+    <%= f.fields_for :items do |item_builder| %>
+      <%= item_builder.label "New Item Name" %>
+      <%= item_builder.text_field :name %>
+    <% end %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

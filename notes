@@ -14,8 +14,8 @@ A Giver will search for a person to give to. They will be able to select a Recei
   - The item will default as "not purchased"; a checkbox can toggle the boolean.
   - Giver will check the box when an item is purchased.
 
-  - The item will be viewed on the Giver's List per store.
+  - The item will be viewed on the Giver's Home page per store.
 
 
 A Receiver will make a list of items - they don't care what store they come from.
-- The item remains on the Receiver's wish list until a Giver marks it as purchased on a Giver's list.
+- The item remains on the Receiver's wish list until a Giver marks it as purchased.

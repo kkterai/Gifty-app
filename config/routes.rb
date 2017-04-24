@@ -11,5 +11,12 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :lists
+  resources :lists do
+    resources :items
+  end
+
+  resources :items do
+    resources :stores
+  end
+
 end
