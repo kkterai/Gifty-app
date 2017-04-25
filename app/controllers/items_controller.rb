@@ -3,13 +3,14 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :edit]
 
   def create
-    @list = List.find(params[:list_id])
-    @item = @list.items.build(item_params)
-    @item.save
-    @list_item = ListItem.new(list_id: params[:list_id])
-    @list_item.item_id = @item.id
-    @list_item.save
-    redirect_to @list
+    @list = List.find_by(id: params[:list_id])
+    @list.items.build(item_params)
+     if @list.save
+       redirect_to @list
+     else
+       flash[:alert] = "please try again"
+       redirect_to @list
+     end
   end
 
   def show
