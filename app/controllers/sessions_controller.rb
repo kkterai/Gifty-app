@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
+    if user.password == nil
+      user.password = params[:password]
+    end
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome #{user.username}!"
@@ -13,7 +16,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create_facebook
+  def create_provider
     @authorization = Authorization.find_by_provider_and_uid(auth["provider"], auth["uid"])
     if @authorization
       session[:user_id] = @authorization.user.id
@@ -25,6 +28,7 @@ class SessionsController < ApplicationController
       user.password = "placeholder"
       if user.save
         session[:user_id] = user.id
+        user.create_list(name: "My Wish List")
         flash[:alert] =  "Welcome #{user.username}!"
         redirect_to '/home'
       else
