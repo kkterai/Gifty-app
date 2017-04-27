@@ -14,17 +14,23 @@ class SessionsController < ApplicationController
   end
 
   def create_facebook
-    user = User.find_or_create_by(:uid => auth['uid']) do |u|
-        u.username = auth['info']['name']
-        u.email = auth['info']['email']
-      end
-    if user
-      session[:user_id] = user.id
-      flash[:notice] = "Welcome #{user.username}!"
+    @authorization = Authorization.find_by_provider_and_uid(auth["provider"], auth["uid"])
+    if @authorization
+      session[:user_id] = @authorization.user.id
+      flash[:alert] =  "Welcome back #{@authorization.user.username}!"
       redirect_to '/home'
     else
-      flash[:alert] = "Uh oh, something went wrong. please try again."
-      redirect_to '/login'
+      user = User.new :username => auth["info"]["name"], :email => auth["info"]["email"]
+      user.authorizations.build :provider => auth["provider"], :uid => auth["uid"]
+      user.password = "placeholder"
+      if user.save
+        session[:user_id] = user.id
+        flash[:alert] =  "Welcome #{user.username}!"
+        redirect_to '/home'
+      else
+        flash[:alert] = "Uh oh, something went wrong. please try again."
+        redirect_to '/login'
+      end
     end
   end
 
