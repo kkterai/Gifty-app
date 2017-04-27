@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170427051057) do
 
   create_table "items", force: :cascade do |t|
     t.string  "name"
-    t.boolean "purchased"
+    t.boolean "purchased", default: false
   end
 
   create_table "list_items", force: :cascade do |t|

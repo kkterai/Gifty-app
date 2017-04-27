@@ -3,11 +3,11 @@
 
 <br>
 
-<% @list.items.each do |item| %>
-  <h2><%= item.name %></h2>
-<% end %>
+  <% @list.items.each do |item| %>
+    <h2><%= item.name %></h2>
+  <% end %>
 
-<h2> Add Items </h2>
+Add Items
 <%= form_for([@list, @item]) do |f| %>
     <%= f.text_field :name %>
     <%= f.submit style: "display: none" %>
