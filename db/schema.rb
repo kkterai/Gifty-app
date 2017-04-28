@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20170427051057) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string  "name"
-    t.boolean "purchased", default: false
+    t.string "name"
   end
 
   create_table "list_items", force: :cascade do |t|
     t.integer "list_id"
     t.integer "item_id"
+    t.boolean "purchased", default: false
   end
 
   create_table "lists", force: :cascade do |t|

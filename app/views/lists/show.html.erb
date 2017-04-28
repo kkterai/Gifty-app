@@ -1,7 +1,6 @@
 <% if @list.id == current_user.id %>
   <h1> This is my wish list </h1>
 
-
   <p><%= form_for([@list, @item]) do |f| %>
     Add Items  <%= f.text_field :name %>
       <%= f.submit style: "display: none" %>
@@ -12,6 +11,14 @@
 
 <br>
 
-  <% @list.items.each do |item| %>
-    <h2><%= item.name %></h2>
+<table>
+  <% @list.list_items.each do |li| %>
+  <tr>
+    <td><h2><%= li.item.name %></h2></td>
+    <% if @list.id == current_user.id %>
+      <td><a href='#'>Delete</a></td>
+      <td><a href='#'>Edit</a></td>
+    <% end %>
+  </tr>
   <% end %>
+</table>
