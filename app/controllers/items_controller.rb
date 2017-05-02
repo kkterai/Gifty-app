@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def create
     @list = List.find_by(id: params[:list_id])
-    raise params.inspect
     @list.items.build(item_params)
      if @list.save
        redirect_to @list
