@@ -3,6 +3,7 @@ class User < ApplicationRecord
   enum role: [:giver, :recipient]
   has_one :list
   has_many :authorizations
+  has_many :list_items, through: :list
 
   validates :username, :password, :email, presence: true
 

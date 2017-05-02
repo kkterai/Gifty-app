@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170427051057) do
   create_table "list_items", force: :cascade do |t|
     t.integer "list_id"
     t.integer "item_id"
+    t.integer "giver_id"
     t.boolean "purchased", default: false
   end
 
