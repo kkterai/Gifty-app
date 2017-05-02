@@ -43,6 +43,7 @@ $ open http://localhost:3000
 Gifty uses a number of open source projects to work properly, including:
 * [Rails] - A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.
 * [Omniauth-facebook] - Facebook OAuth2 Strategy for OmniAuth.
+* [Figaro] - Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file.
 
 
 ### Todos
@@ -61,3 +62,4 @@ This Web Application is available as open source under the terms of the [MIT Lic
 
    [Rails]: <http://rubyonrails.org/>
    [Omniauth-facebook]: <https://github.com/mkdynamic/omniauth-facebook>
+   [Figaro]: <https://github.com/laserlemon/figaro>
