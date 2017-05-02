@@ -42,7 +42,7 @@ $ open http://localhost:3000
 
 Gifty uses a number of open source projects to work properly, including:
 * [Rails] - A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.
-* [Omniauth] - Facebook OAuth2 Strategy for OmniAuth.
+* [Omniauth-facebook] - Facebook OAuth2 Strategy for OmniAuth.
 
 
 ### Todos
