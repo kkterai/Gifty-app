@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'application#index'
   get '/home' => 'application#home'
   post '/home' => 'selections#create'
+  delete '/homme' => 'selections#delete'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

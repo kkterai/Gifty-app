@@ -19,7 +19,7 @@
         <td><a href='#'>Delete</a></td>
         <td><a href='#'>Edit</a></td>
       <% else %>
-        <td><%= check_box_tag "list_item_ids][]",
+        <td><%= check_box_tag "[list_item_ids][]",
       li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
       <% end -%>
     <% end %>

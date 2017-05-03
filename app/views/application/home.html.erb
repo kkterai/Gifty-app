@@ -4,16 +4,23 @@
 
 <table>
   <% if !@user.selections.empty? %>
-  <tr>
-    <th> Gift Description </th>
-    <th> Recipient </th>
-  </tr>
+    <tr>
+      <th> Gift Description </th>
+      <th> Recipient </th>
+      <th> Purchased </th>
+    </tr>
+    <%= form_tag(#need to figure this out) do -%>
+      <% @user.selections.each do |selection| %>
+        <tr>
+            <% item = selection.list_item.item %>
+          <td><%= link_to "#{item.name}", selection_item_path(selection, item) %></td>
+          <td><%= link_to "#{selection.list_item.list.user.username}", list_path(selection.list_item.list) %></td>
+          <td><%= check_box_tag "[selection.list_item_ids][]", (checked = true if selection.id) %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <div><%= submit_tag 'I bought this!' %></div>
   <% end %>
-  <% @user.selections.each do |selection| %>
-  <tr>
-      <% item = selection.list_item.item %>
-    <td><%= link_to "#{item.name}", selection_item_path(selection, item) %></td>
-    <td><%= selection.list_item.list.user.username %></td>
-  <% end %>
-</table>
+<% end %>
 <br>
