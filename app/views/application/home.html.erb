@@ -3,7 +3,7 @@
 <h2> Gifts to give</h2>
 
 <table>
-  <% if @user.selections %>
+  <% if !@user.selections.empty? %>
   <tr>
     <th> Gift Description </th>
     <th> Recipient </th>
@@ -11,7 +11,8 @@
   <% end %>
   <% @user.selections.each do |selection| %>
   <tr>
-    <td><%= selection.list_item.item.name %></td>
+      <% item = selection.list_item.item %>
+    <td><%= link_to "#{item.name}", selection_item_path(selection, item) %></td>
     <td><%= selection.list_item.list.user.username %></td>
   <% end %>
 </table>

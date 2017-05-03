@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = @item.items.build
+
   end
 
   def edit

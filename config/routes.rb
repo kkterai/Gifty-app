@@ -22,4 +22,8 @@ Rails.application.routes.draw do
     resources :stores
   end
 
+  resources :selections do
+    resources :items
+  end
+
 end
