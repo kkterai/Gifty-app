@@ -1,17 +1,18 @@
 <h1>  </h1>
 
-<h2> Gifts to give and where to find them:</h2>
+<h2> Gifts to give</h2>
 
-<ul> <h3> Store 1</h3>
-  <li>(Wishlist item for recipient 1)</li>
-  <li>(Wishlist item for recipient 2)</li>
-</ul>
+<table>
+  <% if @user.selections %>
+  <tr>
+    <th> Gift Description </th>
+    <th> Recipient </th>
+  </tr>
+  <% end %>
+  <% @user.selections.each do |selection| %>
+  <tr>
+    <td><%= selection.list_item.item.name %></td>
+    <td><%= selection.list_item.list.user.username %></td>
+  <% end %>
+</table>
 <br>
-
-<ul> <h3> Store 2</h3>
-  <li>(Wishlist item for recipient 1)</li>
-  <li>(Wishlist item for recipient 3)</li>
-</ul>
-<br>
-
-Do pull down menues? User, then gifts?
