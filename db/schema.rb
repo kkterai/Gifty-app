@@ -42,17 +42,6 @@ ActiveRecord::Schema.define(version: 20170502202552) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "store_items", force: :cascade do |t|
-    t.integer "store_id"
-    t.integer "item_id"
-  end
-
-  create_table "stores", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
