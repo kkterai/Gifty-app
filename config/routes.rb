@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :selections do
-    resources :items
+    resources :list_items
   end
 
 end

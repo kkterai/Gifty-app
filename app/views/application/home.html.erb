@@ -9,13 +9,15 @@
       <th> Recipient </th>
       <th> Purchased </th>
     </tr>
-    <%= form_tag(#need to figure this out) do -%>
+
+    <%= form_tag ("/selections/:selection_id/items/:id", method: "patch") do -%>
       <% @user.selections.each do |selection| %>
         <tr>
             <% item = selection.list_item.item %>
           <td><%= link_to "#{item.name}", selection_item_path(selection, item) %></td>
-          <td><%= link_to "#{selection.list_item.list.user.username}", list_path(selection.list_item.list) %></td>
-          <td><%= check_box_tag "[selection.list_item_ids][]", (checked = true if selection.id) %></td>
+          <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
+
+          <td><%= check_box_tag "[selection.list_item_ids][]", selection.list_item.id, (checked = true if selection.list_item) %></td>
         </tr>
       <% end %>
     </table>
