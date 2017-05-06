@@ -15,10 +15,15 @@ class ListItemsController < ApplicationController
     end
   end
 
+  def destroy
+    ListItem.find(params[:id]).destroy
+    redirect_to current_user.list
+  end
+
   private
 
   def set_list_item
-    @list_item = Item.find(params[:id])
+    @list_item = ListItem.find(params[:id])
   end
 
   def list_item_params

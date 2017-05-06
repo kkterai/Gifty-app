@@ -16,7 +16,7 @@
     <tr>
       <td><h2><%= li.item.name %></h2></td>
       <% if @list.id == current_user.id %>
-        <td><a href='#'>Delete</a></td>
+        <td><%= link_to "Remove", li, method: :delete, data: { confirm: "Are you sure?" } %></td>
         <td><a href='#'>Edit</a></td>
       <% else %>
         <td><%= check_box_tag "[list_item_ids][]",

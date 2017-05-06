@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :list_items, only: [:edit, :update, :destroy]
   resources :selections
 
+  resources :items
+
   resources :lists do
     resources :items
   end

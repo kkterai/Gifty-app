@@ -17,6 +17,7 @@
             <% item = selection.list_item.item %>
           <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
           <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
+          <td><a href='#'>Delete from Selection list </a></td>
 
           <td><%= submit_tag 'Found!' %></td>
         </tr>
