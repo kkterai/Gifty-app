@@ -15,14 +15,13 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback'  => 'sessions#create_provider'
   get '/logout' => 'sessions#destroy'
   post '/selections/:id' => 'selections#update'
-  
+
   resources :list_items, only: [:edit, :update, :destroy]
   resources :selections
 
   resources :lists do
     resources :items
   end
-
 
   resources :selections do
     resources :list_items, only: [:edit, :update, :destroy]

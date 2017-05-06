@@ -1,24 +1,15 @@
 1. Integrate basic theme
-2. Allow users to CRUD lists
-  - In Receiver role: Wish list
-  - In Giver role: Gift list (except the wished item must still be known to the receiver. Somehow need to disassociate the giver from the item w/o deleting it from the receiver)
-    - Once an item is selected, it must show up on the giver's list, yet be available to other users if they want to purchase it(?) #I want each user to have a list of list_item ids.
-      - Then can go in and mark that ListItem's item as purchased.
-    - Once an item is purchased, it should be removed from other users "to-buy" lists and shown as purchased on the receiver's list.
-
-Users can select items from other users' wish lists and check off items when they are purchased/ (Receivers) see what has been purchased. In sum, it functions as a registry and shopping list app.
-
-A Giver will search for a person to give to. They will be able to select a Receiver and view the Receiver's wish list.
-- When the Giver decides they want to buy an item, they check that they want to buy this item.
-  - This mark should be viewable only to the Giver.
-  - The item then goes on the Giver's "list."
-  - The Giver must select a location to buy from.
-    - Givers can either select from a list of existing stores which carry that item or find_or_create a new store.
-  - The item will default as "not purchased"; a checkbox can toggle the boolean.
-  - Giver will check the box when an item is purchased.
-
-  - The item will be viewed on the Giver's Home page per store.
-
-
-A Receiver will make a list of items - they don't care what store they come from.
-- The item remains on the Receiver's wish list until a Giver marks it as purchased, where it is "crossed out." The Receiver should know that their gift has been purchased and not be confused by the item no longer being there.
+2. Allow users to CRUD items on lists
+  - Receivers: Items on their Wish lists
+  - Givers: Gift list: Selections that they have made from other users' lists
+3. How it works
+  Gift Givers
+  - Givers search for a "Friend" to give to. They will be able to select friends and view their wish lists
+  - Items can be selected to buy off of wish lists
+  - Once a wish list item is selected, it must show up on the giver's list/home page, yet be available to other users if they want to purchase it
+    - Then can go in and mark that item as purchased
+  - Once an item is purchased, it should be removed from other users "to-buy" lists and shown as purchased on the receiver's list
+Gift Receivers
+- Can make a list of items
+- The item remains on the Receiver's wish list until a Giver marks it as purchased, where it is "crossed out"
+- Should know that their gift has been purchased yet not be confused by item's status

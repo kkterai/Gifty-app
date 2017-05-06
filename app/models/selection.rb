@@ -15,5 +15,4 @@ class Selection < ApplicationRecord
     list_item.purchased == true
   end
 
-
 end
