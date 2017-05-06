@@ -3,26 +3,24 @@
 <h2> Gifts to give</h2>
 
 <table>
-  <% if !@user.selections.empty? %>
+  <% if !@selections.empty? %>
     <tr>
       <th> Gift Description </th>
       <th> Recipient </th>
       <th> Purchased </th>
     </tr>
 
-    <%= form_tag ("/selections/:selection_id/items/:id", method: "patch") do -%>
-      <% @user.selections.each do |selection| %>
+
+      <% @selections.each do |selection| %>
+      <%= form_tag (selection) do %>
         <tr>
             <% item = selection.list_item.item %>
-          <td><%= link_to "#{item.name}", selection_item_path(selection, item) %></td>
+          <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
           <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
 
-          <td><%= check_box_tag "[selection.list_item_ids][]", selection.list_item.id, (checked = true if selection.list_item) %></td>
+          <td><%= submit_tag 'Found!' %></td>
         </tr>
       <% end %>
     </table>
-
-    <div><%= submit_tag 'I bought this!' %></div>
   <% end %>
 <% end %>
-<br>

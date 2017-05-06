@@ -6,5 +6,5 @@ class ListItem < ApplicationRecord
   has_many :users, through: :selections
 
   accepts_nested_attributes_for :selections
-  
+
 end
