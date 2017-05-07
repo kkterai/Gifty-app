@@ -8,7 +8,6 @@ class ListItemsController < ApplicationController
 
   def show
     @list = current_user.list
-    @list_2 = List.find(params[:list_id])
   end
 
   def edit

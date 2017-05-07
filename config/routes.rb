@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :selections do
-    resources :list_items, only: [:edit, :update, :destroy]
+    resources :list_items
   end
 
 end
