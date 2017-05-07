@@ -1,5 +1,5 @@
 <% if @list.id == current_user.id %>
-  <h1> This is my wish list </h1>
+  <h1> My Wish List </h1>
 
   <p><%= form_for([@list, @item]) do |f| %>
     Add Items  <%= f.text_field :name %>
@@ -7,7 +7,7 @@
   <% end %></p>
 
 <% else %>
-  <h1> "<%= @list.user.username%>'s Wishlist" </h1>
+  <h2> <%= @list.user.username%>'s Wishlist </h2>
 <% end %>
 
 <br>
@@ -44,7 +44,7 @@
     <% end %>
   </tr>
     <% if @list.id != current_user.id %>
-      <div><%= submit_tag 'Add to My List' %></div>
+      <%= submit_tag 'Add to My List' %>
     <% end %>
   <% end %>
 </table>
