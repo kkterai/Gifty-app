@@ -19,9 +19,9 @@ Remaining:
 1. Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 2. Include form display of validation errors (form URL e.g. /recipes/new) - Ensure that there is adequate outside of authentication
 3. See if I can use helper methods in views to reduce logic
-4. Delete unused routes
+
 5. Delete unused controllers
-6. See about alphabetizing search
+
 7. See if callbacks would be helpful
 8. HTML/CSS! Define layout and classes
 9. Nice to have/next version:
@@ -30,7 +30,7 @@ Remaining:
       - notice for entering duplicate items
       - collection_select box/dropdown to select items to lists (involves making a new list_item)
       - ability to enter in items that have been deleted from list_items/user wish lists
-    - 
+    -
 
 Bugs found:
 1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.

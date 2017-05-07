@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
   before_action :authorize
-  before_action :set_list, only: [:show, :update, :edit]
+  before_action :set_list, only: [:show]
 
 
   def create
@@ -15,17 +15,6 @@ class ListsController < ApplicationController
 
   def show
     @item = @list.items.build
-  end
-
-  def edit
-  end
-
-  def update
-    if @list.update(list_params)
-      redirect_to @list
-    else
-      render 'edit'
-    end
   end
 
   private
