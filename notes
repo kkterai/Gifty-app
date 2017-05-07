@@ -13,3 +13,14 @@ Gift Receivers
 - Can make a list of items
 - The item remains on the Receiver's wish list until a Giver marks it as purchased, where it is "crossed out"
 - Should know that their gift has been purchased yet not be confused by item's status
+
+
+Remaining:
+1. Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+2. Include form display of validation errors (form URL e.g. /recipes/new) - Ensure that there is adequate outside of authentication
+3. See if I can use helper methods in views to reduce logic
+4. Delete unused routes
+5. Delete unused controllers
+6. See about alphabetizing search
+7. See if callbacks would be helpful
+8. HTML/CSS! Define layout and classes
