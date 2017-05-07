@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-
   before_action :authorize
   before_action :set_list, only: [:show]
 

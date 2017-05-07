@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   post '/home' => 'selections#create'
-  delete '/home' => 'selections#delete'
-  post '/selections/:id' => 'selections#update'
+  delete '/selections/:id' => 'selections#destroy'
+  patch '/selections/:id' => 'selections#update'
+
 
   resources :list_items, only: [:update, :destroy]
 
