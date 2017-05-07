@@ -33,6 +33,9 @@ Nice to have/next version/future versions:
   - Authentication from additional platforms
   - Test friend search in side bar, consider using cells gem
   - Add placeholder text in list_item details text area
+  - Most popular/trending items
+    - Build class level method
+    - Place in sidebar
 
 Bugs found:
 1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.

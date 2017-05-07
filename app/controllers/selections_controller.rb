@@ -14,10 +14,11 @@ class SelectionsController < ApplicationController
     redirect_to home_path
   end
 
-  def update #Found!
+  def update 
     @selection.list_item.purchased = true
     @selection.list_item.save
-    if @selection.destroy
+    if @selection
+      @selection.delete
       redirect_to '/home'
     else
       flash[:alert] = "Something went wrong. Please try again"
