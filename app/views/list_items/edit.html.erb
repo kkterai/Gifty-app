@@ -1,9 +1,6 @@
-<br>
+<%= "#{@list_item.item.name}" %>
 
-<h1><%= "#{@list_item.item.name}" %></h1>
-<br>
-<h2> The deets </h2>
-<%= form_for @list_item, @list do |f| %>
+<%= form_for @list_item do |f| %>
   <%= f.text_area :details %>
   <%= f.submit %>
 <% end %>

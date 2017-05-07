@@ -2,6 +2,10 @@ class ListItemsController < ApplicationController
   before_action :authorize
   before_action :set_list_item, only: [:show, :update, :edit]
 
+  def create
+    
+  end
+
   def show
     @list = current_user.list
   end

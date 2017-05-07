@@ -5,6 +5,7 @@
     Add Items  <%= f.text_field :name %>
       <%= f.submit style: "display: none" %>
   <% end %></p>
+
 <% else %>
   <h1> "<%= @list.user.username%>'s Wishlist" </h1>
 <% end %>
@@ -14,7 +15,7 @@
 <table>
   <% @list.list_items.each do |li| %>
     <tr>
-      <td><h2><%= li.item.name %></h2></td>
+      <td><h2><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></h2></td>
       <% if @list.id == current_user.id %>
         <td><%= link_to "Remove", li, method: :delete, data: { confirm: "Are you sure?" } %></td>
         <td><%= link_to "Add Details", edit_list_list_item_path(@list, li)  %></td>

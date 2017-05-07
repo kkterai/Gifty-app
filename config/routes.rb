@@ -16,10 +16,14 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   post '/selections/:id' => 'selections#update'
 
-  resources :list_items
+  resources :list_items, only: [:show, :edit, :update, :destroy]
   resources :selections
 
   resources :items
+
+  resources :lists do
+    resources :items
+  end
 
   resources :lists do
     resources :list_items
