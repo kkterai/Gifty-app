@@ -14,7 +14,7 @@ class SelectionsController < ApplicationController
     redirect_to home_path
   end
 
-  def update
+  def update #Found!
     raise params.inspect
     if @selection.update(selection_params)
       redirect_to @item
@@ -22,6 +22,12 @@ class SelectionsController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    Selection.find(params[:id]).destroy
+    redirect_to '/home'
+  end
+
 
   private
 

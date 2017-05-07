@@ -25,7 +25,7 @@ class ListItemsController < ApplicationController
 
   def destroy
     ListItem.find(params[:id]).destroy
-    redirect_to current_user.list
+    redirect_to '/home'
   end
 
   private

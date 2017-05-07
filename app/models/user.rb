@@ -1,6 +1,5 @@
 class User < ApplicationRecord
 
-  enum role: [:giver, :recipient]
   has_one :list
   has_many :authorizations
   has_many :selections

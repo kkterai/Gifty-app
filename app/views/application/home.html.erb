@@ -17,9 +17,14 @@
             <% item = selection.list_item.item %>
           <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
           <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
-          <td><a href='#'>Delete from Selection list </a></td>
 
-          <td><%= submit_tag 'Found!' %></td>
+          <!-- WIP -->
+          <!-- <%= form_for (selection.list_item) do |f| %>
+          <td><%= f.button "Found it", name: "button_action", value: true %>
+            <%= f.submit  %></td>
+          <% end %> -->
+
+          <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
         </tr>
       <% end %>
     </table>

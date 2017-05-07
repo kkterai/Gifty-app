@@ -7,4 +7,8 @@ class ListItem < ApplicationRecord
 
   accepts_nested_attributes_for :selections
 
+  def most_popular_items
+    ListItem
+
+  end
 end
