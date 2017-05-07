@@ -1,14 +1,18 @@
 class ListItemsController < ApplicationController
   before_action :authorize
-  before_action :set_list_item, only: [:update, :edit]
+  before_action :set_list_item, only: [:show, :update, :edit]
 
+  def show
+    @list = current_user.list
+  end
 
   def edit
+    @list = current_user.list
   end
 
   def update
     if @list_item.update(list_item_params)
-      redirect_to '/home'
+      redirect_to
     else
       flash[:alert] = "please try again"
       render '/home'
@@ -27,7 +31,7 @@ class ListItemsController < ApplicationController
   end
 
   def list_item_params
-    params.require(:list_item).permit(:name)
+    params.require(:list_item).permit(:details)
   end
 
 end

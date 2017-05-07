@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502202552) do
+ActiveRecord::Schema.define(version: 20170506233615) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170502202552) do
     t.integer "list_id"
     t.integer "item_id"
     t.boolean "purchased", default: false
+    t.string  "details"
   end
 
   create_table "lists", force: :cascade do |t|
