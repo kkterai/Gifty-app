@@ -24,3 +24,7 @@ Remaining:
 6. See about alphabetizing search
 7. See if callbacks would be helpful
 8. HTML/CSS! Define layout and classes
+
+Bugs found:
+1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.
+2. Search does not alphabetize usernames created via omniauth.

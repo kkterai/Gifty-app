@@ -8,8 +8,4 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates_uniqueness_of :name
 
-  # def self.top_ten_most_popular_items
-  #   byebug
-  #   self.select("item_id, count(item_id)").group(item_id)
-  # end
 end

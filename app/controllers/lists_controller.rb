@@ -3,13 +3,6 @@ class ListsController < ApplicationController
   before_action :authorize
   before_action :set_list, only: [:show, :update, :edit]
 
-  def index
-    @lists = List.all
-  end
-
-  def new
-    @list = List.new
-  end
 
   def create
     @list = List.new(list_params)
