@@ -14,17 +14,16 @@
         <% item = selection.list_item.item %>
         <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
 
-        <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
+        <td><%= link_to "#{selection.wishlist_owner.username}",         list_path(selection.list_item.list) %></td>
 
-        <% if selection.list_item.purchased == true %>
-        <td>Someone bought it!</td>
-
-        <% else %>
-          <%= form_for(selection) do |f| %>
-        <td><%= f.button "Bought It!"%></td>
-        <td><%= f.submit style: "display: none"%></td>
+          <% if selection.list_item.purchased == true %>
+            <td>Someone snagged it!</td>
+          <% else %>
+            <%= form_for(selection) do |f| %>
+            <td><%= f.button "Got It!"%></td>
+            <%= f.submit style: "display: none"%>
+            <% end %>
           <% end %>
-        <% end %>
         <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>

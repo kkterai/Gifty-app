@@ -16,21 +16,21 @@ Gift Receivers
 
 
 Remaining:
-1. Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-2. Include form display of validation errors (form URL e.g. /recipes/new) - Ensure that there is adequate outside of authentication
-3. See if I can use helper methods in views to reduce logic
 
-5. Delete unused controllers
+- HTML/CSS! Define layout and classes
+- See if I can use helper methods in views to reduce logic
 
-7. See if callbacks would be helpful
-8. HTML/CSS! Define layout and classes
-9. Nice to have/next version:
-    - authorizations
-    - Item model: resolve issues around validates_uniqueness_of :name
-      - notice for entering duplicate items
-      - collection_select box/dropdown to select items to lists (involves making a new list_item)
-      - ability to enter in items that have been deleted from list_items/user wish lists
-    -
+Nice to have/next version/future versions:
+  - authorizations
+  - Item model: resolve issues around validates_uniqueness_of :name
+    - notice for entering duplicate items
+    - collection_select box/dropdown to select items to lists (involves making a new list_item)
+    - ability to enter in items that have been deleted from list_items/user wish lists
+  - Identify callbacks that would be helpful
+  - User profiles - Either based on FB/Social Media profiles
+  - Authentication from additional platforms
+  - Test friend search in side bar, consider using cells gem
+  - Add placeholder text in list_item details text area
 
 Bugs found:
 1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.

@@ -9,18 +9,32 @@
   </head>
 
   <body>
-    <div class="navbar-header">
-      <% if current_user %>
-        Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %> | <%= link_to "Home", '/home' %> | <%= link_to "My Wish List", "/lists/#{current_user.id}" %> | <a href='/users'> Find Friends</a>
-      <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-      <% end %>
-      <br>
+    <header>
+      <div class="container">
+        <div class="navbar-header">
+          <% if current_user %>
+            Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %> | <%= link_to "Home", '/home' %> | <%= link_to "My Wish List", "/lists/#{current_user.id}" %> | <a href='/users'> Find Friends</a>
+          <% else %>
+            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+          <% end %>
+      </div>
     </div>
+  </header>
 
-    <div class="container"
+  <div class = "main">
+    <div class="container">
       <%= render 'layouts/messages' %>
-      <%= yield %>
+      <div class = "content">
+        <%= yield %>
+      </div>
     </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class = "content"></div>
+    </div>
+  </footer>
+
   </body>
 </html>
