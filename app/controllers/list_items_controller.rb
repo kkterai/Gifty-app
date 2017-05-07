@@ -3,11 +3,12 @@ class ListItemsController < ApplicationController
   before_action :set_list_item, only: [:show, :update, :edit]
 
   def create
-    
+
   end
 
   def show
     @list = current_user.list
+    @list_2 = List.find(params[:list_id])
   end
 
   def edit

@@ -1,9 +1,15 @@
 <br>
 <h1><%= "#{@list_item.item.name}" %></h1>
+
 <br>
 <h2> The deets </h2>
 <h3><%= @list_item.details %></h3>
 
-
+<% if current_user.list.id  == @list_item.list_id %>
 <h3> <%= link_to "Add details", edit_list_list_item_path(@list) %> </h3>
+<% end %>
+
+<% if current_user.list.id  != @list_item.list_id %>
+<h3> <%= link_to "More from #{@list_item.list.user.username}'s Wish List'", list_path(@list_2) %> </h3>
+<% end %>
 <h3> <%= link_to "Back to my Wish List", list_path(@list) %> </h3>
