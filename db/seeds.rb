@@ -12,5 +12,6 @@
               user.build_list(name: "My Wish List").save
   10.times do |item|
     user.list.items.create(name: Faker::Commerce.product_name)
+    user.list.list_items.update(details: Faker::Hipster.paragraph)
   end
 end
