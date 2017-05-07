@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   root 'application#index'
   get '/home' => 'application#home'
-  post '/home' => 'selections#create'
-  delete '/homme' => 'selections#delete'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
@@ -14,23 +12,23 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get 'auth/facebook/callback'  => 'sessions#create_provider'
   get '/logout' => 'sessions#destroy'
+
+  post '/home' => 'selections#create'
+  delete '/home' => 'selections#delete'
   post '/selections/:id' => 'selections#update'
 
   resources :list_items, only: [:show, :edit, :update, :destroy]
-  resources :selections
-
-  resources :items
 
   resources :lists do
     resources :items
   end
 
-  resources :lists do
+  resources :lists, only: [:show] do
     resources :list_items
   end
 
-  resources :selections do
-    resources :list_items
+  resources :selections, only: [:show] do
+    resources :list_items, only: [:show]
   end
 
 end

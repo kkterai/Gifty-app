@@ -24,6 +24,13 @@ Remaining:
 6. See about alphabetizing search
 7. See if callbacks would be helpful
 8. HTML/CSS! Define layout and classes
+9. Nice to have/next version:
+    - authorizations
+    - Item model: resolve issues around validates_uniqueness_of :name
+      - notice for entering duplicate items
+      - collection_select box/dropdown to select items to lists (involves making a new list_item)
+      - ability to enter in items that have been deleted from list_items/user wish lists
+    - 
 
 Bugs found:
 1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.

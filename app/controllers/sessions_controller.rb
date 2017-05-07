@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     if @authorization
       session[:user_id] = @authorization.user.id
       flash[:alert] =  "Welcome back #{@authorization.user.username}!"
-      redirect_to '/login'
+      redirect_to '/home'
     else
       user = User.new :username => auth["info"]["name"], :email => auth["info"]["email"]
       user.authorizations.build :provider => auth["provider"], :uid => auth["uid"]
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         user.create_list(name: "My Wish List")
         flash[:alert] =  "Welcome #{user.username}!"
-        redirect_to '/login'
+        redirect_to '/home'
       else
         flash[:alert] = "Uh oh, something went wrong. please try again."
         redirect_to '/login'

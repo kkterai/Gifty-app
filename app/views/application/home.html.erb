@@ -27,7 +27,8 @@
         <% end %>
         <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
-
-  <% end %>
+    <% end %>
+  <% else %>
+    <a href='/users'> Find out what your friends want!</a>
 <% end %>
 </table>
