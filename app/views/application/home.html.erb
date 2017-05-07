@@ -4,29 +4,30 @@
 
 <table>
   <% if !@selections.empty? %>
-    <tr>
-      <th> Gift Description </th>
-      <th> Recipient </th>
-      <th> Purchased </th>
-    </tr>
+      <tr>
+        <th> Gift Description </th>
+        <th> Recipient </th>
+        <th>  </th>
+      </tr>
+    <% @selections.each do |selection| %>
+      <tr>
+        <% item = selection.list_item.item %>
+        <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
 
+        <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
 
-      <% @selections.each do |selection| %>
-      <%= form_tag (selection) do %>
-        <tr>
-            <% item = selection.list_item.item %>
-          <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
-          <td><%= link_to "#{selection.wishlist_owner.username}", list_path(selection.list_item.list) %></td>
+        <% if selection.list_item.purchased == true %>
+        <td>Someone bought it!</td>
 
-          <!-- WIP -->
-          <!-- <%= form_for (selection.list_item) do |f| %>
-          <td><%= f.button "Found it", name: "button_action", value: true %>
-            <%= f.submit  %></td>
-          <% end %> -->
+        <% else %>
+          <%= form_for(selection) do |f| %>
+        <td><%= f.button "Bought It!"%></td>
+        <td><%= f.submit style: "display: none"%></td>
+          <% end %>
+        <% end %>
+        <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
 
-          <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
-        </tr>
-      <% end %>
-    </table>
   <% end %>
 <% end %>
+</table>

@@ -15,11 +15,13 @@ class SelectionsController < ApplicationController
   end
 
   def update #Found!
-    raise params.inspect
-    if @selection.update(selection_params)
-      redirect_to @item
+    @selection.list_item.purchased = true
+    @selection.list_item.save
+    if @selection.destroy
+      redirect_to '/home'
     else
-      render 'edit'
+      flash[:alert] = "Something went wrong. Please try again"
+      redirect_to '/home'
     end
   end
 

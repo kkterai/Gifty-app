@@ -13,20 +13,38 @@
 <br>
 <%= form_tag('/home') do -%>
 <table>
+  <% if !@list.list_items.empty? %>
+  <tr>
+    <th> Description </th>
+    <th> Purchased </th>
+    <% if @list.id != current_user.id %>
+    <th> Add to list </th>
+    <% end %>
+<% end %>
+
+  </tr>
   <% @list.list_items.each do |li| %>
     <tr>
       <td><h2><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></h2></td>
+      <% if li.purchased == true %>
+        <td><h2>Yes!</h2></td>
+      <% else %>
+        <td><h2>Not Yet</h2></td>
+      <% end %>
+
       <% if @list.id == current_user.id %>
         <td><%= link_to "Remove", li, method: :delete, data: { confirm: "Are you sure?" } %></td>
         <td><%= link_to "Add Details", edit_list_list_item_path(@list, li)  %></td>
       <% else %>
-        <td><%= check_box_tag "[list_item_ids][]",
-      li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
+        <% if li.purchased != true %>
+          <td><%= check_box_tag "[list_item_ids][]",
+        li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
+        <% end %>
       <% end -%>
     <% end %>
   </tr>
     <% if @list.id != current_user.id %>
-      <div><%= submit_tag 'Add to My Shopping List' %></div>
+      <div><%= submit_tag 'Add to My List' %></div>
     <% end %>
   <% end %>
 </table>

@@ -16,10 +16,10 @@ class ListItemsController < ApplicationController
 
   def update
     if @list_item.update(list_item_params)
-      redirect_to
+      redirect_to '/home'
     else
       flash[:alert] = "please try again"
-      render '/home'
+      redirect_to '/home'
     end
   end
 
