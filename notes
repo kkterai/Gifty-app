@@ -21,9 +21,10 @@ Remaining:
 - See if I can use helper methods in views to reduce logic
 
 Nice to have/next version/future versions:
-  - authorizations
-  - add tests
-  - add more seed data for wish lists
+  - Authorizations
+  - Add tests
+  - Add more seed data for wish lists
+  - Add ability to undo deletions
   - Item model: resolve issues around validates_uniqueness_of :name
     - notice for entering duplicate items
     - collection_select box/dropdown to select items to lists (involves making a new list_item)

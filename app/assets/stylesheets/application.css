@@ -54,7 +54,7 @@ button {
 	-moz-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
-.content {
+/*.content {
   width: 75%;
   font-size: 16px;
   padding-top: 20px;
@@ -68,10 +68,9 @@ button {
   padding-top: 20px;
   float: right;
   height: 100vh;
-}
+}*/
 
-button,
-input[type="checkbox"] {
+input {
 	outline: none;
 }
 
@@ -87,7 +86,7 @@ input[type="checkbox"] {
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.todoapp input::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 300;
 	color: #e6e6e6;
