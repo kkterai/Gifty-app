@@ -17,14 +17,14 @@ Rails.application.routes.draw do
   delete '/home' => 'selections#delete'
   post '/selections/:id' => 'selections#update'
 
-  resources :list_items, only: [:show, :edit, :update, :destroy]
+  resources :list_items, only: [:update, :destroy]
 
   resources :lists do
-    resources :items
+   resources :items, only: [:create]
   end
 
   resources :lists, only: [:show] do
-    resources :list_items
+    resources :list_items, only: [:show, :edit, :update, :destroy]
   end
 
   resources :selections, only: [:show] do

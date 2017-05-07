@@ -11,7 +11,7 @@ class ListItemsController < ApplicationController
   end
 
   def edit
-    @list = current_user.list
+    @item = @list_item.item
   end
 
   def update
