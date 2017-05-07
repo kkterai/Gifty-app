@@ -25,11 +25,11 @@
   </tr>
   <% @list.list_items.each do |li| %>
     <tr>
-      <td><h2><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></h2></td>
+      <td><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></td>
       <% if li.purchased == true %>
-        <td><h2>Yes!</h2></td>
+        <td>Yes!</td>
       <% else %>
-        <td><h2>Not Yet</h2></td>
+        <td>Not Yet</td>
       <% end %>
 
       <% if @list.id == current_user.id %>

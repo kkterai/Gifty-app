@@ -54,6 +54,21 @@ button {
 	-moz-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
+.content {
+  width: 75%;
+  font-size: 16px;
+  padding-top: 20px;
+  float: left;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 25%;
+  font-size: 16px;
+  padding-top: 20px;
+  float: right;
+  height: 100vh;
+}
 
 button,
 input[type="checkbox"] {

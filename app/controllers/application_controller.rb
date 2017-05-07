@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def home
     @selections = current_user.selections
+    @users = User.all
   end
 
   def index

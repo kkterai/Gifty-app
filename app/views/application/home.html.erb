@@ -1,31 +1,50 @@
-<h1> My Gift Shopping List </h1>
+<div class= "content">
+  <h1> My Gift Shopping List </h1>
 
-<table>
-  <% if !@selections.empty? %>
-      <tr>
-        <th> Gift Description </th>
-        <th> Recipient </th>
-        <th>  </th>
-      </tr>
-    <% @selections.each do |selection| %>
-      <tr>
-        <% item = selection.list_item.item %>
-        <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
+  <table>
+    <% if !@selections.empty? %>
+        <tr>
+          <th> Gift Description </th>
+          <th> Recipient </th>
+          <th>  </th>
+        </tr>
+      <% @selections.each do |selection| %>
+        <tr>
+          <% item = selection.list_item.item %>
+          <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
 
-        <td><%= link_to "#{selection.wishlist_owner.username}",         list_path(selection.list_item.list) %></td>
+          <td><%= link_to "#{selection.wishlist_owner.username}",         list_path(selection.list_item.list) %></td>
 
-          <% if selection.list_item.purchased == true %>
-            <td>Someone snagged it!</td>
-          <% else %>
-            <%= form_for(selection) do |f| %>
-            <td><%= f.button "Got It!"%></td>
-            <%= f.submit style: "display: none"%>
+            <% if selection.list_item.purchased == true %>
+              <td>Someone snagged it!</td>
+            <% else %>
+              <%= form_for(selection) do |f| %>
+              <td><%= f.button "Got It!"%></td>
+              <%= f.submit style: "display: none"%>
+              <% end %>
             <% end %>
-          <% end %>
-        <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
+          <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <a href='/users'> Find out what your friends want!</a>
+  <% end %>
+  </table>
+</div>
+
+<div class= "sidebar">
+  <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Friends" %>
+  <%= submit_tag "Search" %>
+  <% end %>
+
+  <% if @users.present? %>
+  <% @users.each do |user| %>
+      <% unless user == current_user %>
+      <p><%= link_to "#{user.username}", "/lists/#{user.id}" %></p>
+      <% end %>
     <% end %>
   <% else %>
-    <a href='/users'> Find out what your friends want!</a>
-<% end %>
-</table>
+   <p>There is no one by the name of <%= params[:search] %>. Try again!</p>
+  <% end %>
+</div>
