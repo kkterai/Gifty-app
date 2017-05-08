@@ -17,9 +17,7 @@ Gift Receivers
 
 Remaining:
 
-- HTML/CSS! Define layout and classes
-- Replace lost figaro file
-- See if I can use helper methods in views to reduce logic
+  - submit current version!
 
 Nice to have/next version/future versions:
   - Authorizations
@@ -35,10 +33,12 @@ Nice to have/next version/future versions:
   - Authentication from additional platforms
   - Test friend search in side bar, consider using cells gem
   - Add placeholder text in list_item details text area
-  - Most popular/trending items
+  - Build most popular/trending items
     - Build class level method
     - Place in sidebar
+  - Continue refining code
 
 Bugs found:
 1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.
 2. Search does not alphabetize usernames created via omniauth.
+3. Occasionally, a Selection does not delete immediately upon clicking "Got it!"
