@@ -63,10 +63,11 @@ input {
 
 .welcome h1 {
 	position: absolute;
+  padding: 40px;
 	width: 100%;
 	font-size: 100px;
 	font-weight: 100;
-	text-align: center;
+	text-align: left;
 	color: white;
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
@@ -112,7 +113,7 @@ button {
   border-radius: 8px;
   background-color: #79a8a9;
   border: none;
-  color: #FFFFFF;
+  color: white;
   text-align: center;
   padding: 5px;
   width: 175px;
@@ -124,20 +125,16 @@ button {
   font-size: 85%;
 }
 
-td input {
-  border-radius: 8px;
-  background-color: #79a8a9;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 5px;
-  width: 175px;
-  transition: all 0.5s;
-  margin: 5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 100;
-  font-size: 85%;
+
+textarea {
+	width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
 }
 
 .main {
