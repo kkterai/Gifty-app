@@ -22,7 +22,7 @@
             <%= f.submit style: "display: none"%>
             <% end %>
           <% end %>
-        <td><%= link_to "Remove from list", selection, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><button><%= link_to "Delete", selection, method: :delete, data: { confirm: "Are you sure?" } %></button></td>
       </tr>
     <% end %>
   <% else %>

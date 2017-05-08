@@ -23,7 +23,8 @@ http://colorzilla.com/gradient-editor/#cccccc+0,0e0e0e+100
 }
 
 html {
-    background-color: #fff;
+  background-color: #f4f7f7;
+
     color: #555;
     font-family: 'Lato', 'Arial', sans-serif;
     font-weight: 300;
@@ -32,7 +33,7 @@ html {
 }
 
 .background_image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url("gift.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("gift.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -46,10 +47,7 @@ html {
 
 .container a {
     text-decoration: none;
-}
-
-input {
-	outline: none;
+    color: #555;
 }
 
 .hidden {
@@ -57,8 +55,10 @@ input {
 }
 
 input {
-	/*font-weight: 300;
-	color: #e6e6e6;*/
+  outline: none;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
 }
 
 .welcome h1 {
@@ -75,22 +75,22 @@ input {
 
 .log-box {
   padding: 40px;
-  color: white;
+  color: #f4f7f7;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 100;
 }
 
 .log-box a {
-  color: white;
+  color: #f4f7f7;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 100;
 }
 
-.log-box .actions input {
+.log-box .actions p input {
   border-radius: 8px;
-  background-color: #ed6009;
+  background-color: #1f4e5f;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -104,96 +104,28 @@ input {
   font-size: 85%;
 }
 
+button {
+  border-radius: 8px;
+  background-color: #79a8a9;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  margin: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 85%;
+}
+
+
 .main {
 	position: relative;
 	z-index: 2;
 	border-top: 1px solid #e6e6e6;
 }
-
-label[for='toggle-all'] {
-	display: none;
-}
-
-.toggle-all {
-	position: absolute;
-	top: -55px;
-	left: -12px;
-	width: 60px;
-	height: 34px;
-	text-align: center;
-	border: none; /* Mobile Safari */
-}
-
-.toggle-all:before {
-	content: '❯';
-	font-size: 22px;
-	color: #e6e6e6;
-	padding: 10px 27px 10px 27px;
-}
-
-.toggle-all:checked:before {
-	color: #737373;
-}
-
-.todo-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.todo-list li .toggle {
-	text-align: center;
-	width: 40px;
-	/* auto, since non-WebKit browsers doesn't support input styling */
-	height: auto;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	margin: auto 0;
-	border: none; /* Mobile Safari */
-	-webkit-appearance: none;
-	appearance: none;
-}
-
-.todo-list li .toggle:after {
-	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
-}
-
-.todo-list li .toggle:checked:after {
-	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-}
-
-.todo-list li label {
-	white-space: pre-line;
-	word-break: break-all;
-	padding: 15px 60px 15px 15px;
-	margin-left: 45px;
-	display: block;
-	line-height: 1.2;
-	transition: color 0.4s;
-}
-
-.todo-list li.completed label {
-	color: #d9d9d9;
-	text-decoration: line-through;
-}
-
-.todo-list li .destroy:hover {
-	color: #af5b5e;
-}
-
-.todo-list li .destroy:after {
-	content: '×';
-}
-
-.todo-list li:hover .destroy {
-	display: block;
-}
-
-.todo-list li .edit {
-	display: none;
-}
-
 
 .footer {
 	color: #777;

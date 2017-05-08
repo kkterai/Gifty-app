@@ -1,14 +1,17 @@
 <div class="background_image">
-  
-<h1><strong> Signup!</strong></h1>
+  <div class= "log-box">
+    <h1><strong> Signup</strong></h1>
+    <%= form_for :user, url: '/users' do |f| %>
 
-<%= form_for :user, url: '/users' do |f| %>
+      <p> Username: <%= f.text_field :username %></p>
+      <p> Email: <%= f.text_field :email %></p>
+      <p> Password: <%= f.password_field :password %></p>
+      <p> Password Confirmation: <%= f.password_field :password_confirmation %></p>
+      <div class= "actions">
+        <p> <%= f.submit "Submit" %></p>
+      </div>
 
-  <p> Username: <%= f.text_field :username %></p>
-  <p> Email: <%= f.text_field :email %></p>
-  <p> Password: <%= f.password_field :password %></p>
-  <p> Password Confirmation: <%= f.password_field :password_confirmation %></p>
-  <p> <%= f.submit "Submit" %></p>
-
-  <%= link_to("signup with facebook!", "/auth/facebook") %>
-<% end %>
+      <%= link_to("signup with facebook!", "/auth/facebook") %>
+    <% end %>
+   </div>
+</div>
