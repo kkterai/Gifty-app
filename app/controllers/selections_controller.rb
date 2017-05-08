@@ -3,7 +3,7 @@ class SelectionsController < ApplicationController
 
   def create
     list_item_ids = params["list_item_ids"]
-    if !list_item_ids == nil
+    if list_item_ids
       list_item_ids.each do |li|
         selection = Selection.new
         selection.build_user
