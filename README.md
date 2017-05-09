@@ -11,11 +11,10 @@ Gifty is a Rails App to help you find gifts for friends and streamline shopping 
   - As a Gift Recipient
     - Add items to your wish list
     - Delete items from your wish list
-    - Edit items on your wish list
-    - Delete projects with their associated tasks
+    - Edit details on your wish list
 
 ## Video walkthrough
-*COMING SOON*
+Gifty Video walkthrough
 
 ## Installation
 Clone the repository, then execute:
@@ -46,11 +45,6 @@ Gifty uses a number of open source projects to work properly, including:
 * [Figaro] - Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file.
 
 
-### Todos
-
- - Add admin console
- - Add ability to list by store
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [this project's repository]. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
@@ -63,3 +57,4 @@ This Web Application is available as open source under the terms of the [MIT Lic
    [Rails]: <http://rubyonrails.org/>
    [Omniauth-facebook]: <https://github.com/mkdynamic/omniauth-facebook>
    [Figaro]: <https://github.com/laserlemon/figaro>
+    [Gifty Video walkthrough]: <https://drive.google.com/file/d/0BxTfGFwB1IsuYm81VW15NU0ydU0/view>
