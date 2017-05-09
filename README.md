@@ -14,7 +14,7 @@ Gifty is a Rails App to help you find gifts for friends and streamline shopping 
     - Edit details on your wish list
 
 ## Video walkthrough
-Gifty Video walkthrough
+[Gifty Video walkthrough]
 
 ## Installation
 Clone the repository, then execute:
