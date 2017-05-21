@@ -3,7 +3,7 @@ class ListItemsController < ApplicationController
   before_action :set_list_item, only: [:show, :update, :edit]
 
   def create
-
+  
   end
 
   def show
