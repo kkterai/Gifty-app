@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @users}
+    end
     if params[:search]
       @users = User.search(params[:search]).order("username ASC")
     else
