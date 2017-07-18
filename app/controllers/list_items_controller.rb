@@ -8,6 +8,7 @@ class ListItemsController < ApplicationController
 
   def show
     @list = current_user.list
+    render json: @list_item, include: ['item']
   end
 
   def edit

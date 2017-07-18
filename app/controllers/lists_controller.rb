@@ -16,9 +16,15 @@ class ListsController < ApplicationController
     @item = @list.items.build
     respond_to do |format|
       format.html
-      format.json { render json: @list }
+      format.json { render json: @list, include: ['list_items'] }
     end
   end
+
+  def index
+    @lists = List.all
+    render json: @lists
+  end
+  
 
   private
 

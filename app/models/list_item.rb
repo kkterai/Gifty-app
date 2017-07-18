@@ -5,6 +5,9 @@ class ListItem < ApplicationRecord
   has_many :selections
   has_many :users, through: :selections
 
+  serialize :details
+  serialize :purchased
+
   accepts_nested_attributes_for :selections
 
   def self.top_ten_most_popular_items

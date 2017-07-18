@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   patch '/selections/:id' => 'selections#update'
 
 
-  resources :list_items, only: [:update, :destroy]
+  resources :list_items, only: [:show,:update, :destroy]
 
   resources :lists do
    resources :items, only: [:create]
