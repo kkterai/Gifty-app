@@ -14,6 +14,10 @@ class ListsController < ApplicationController
 
   def show
     @item = @list.items.build
+    respond_to do |format|
+      format.html
+      format.json { render json: @list }
+    end
   end
 
   private
