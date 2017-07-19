@@ -25,6 +25,7 @@
   </tr>
   <% @list.list_items.each do |li| %>
     <tr>
+    <!-- <div id="result"> new list_items to go here </div> -->
       <td><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></td>
       <% if li.purchased == true %>
         <td>Yes!</td>
