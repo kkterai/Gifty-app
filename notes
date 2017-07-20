@@ -17,7 +17,13 @@ Gift Receivers
 
 Remaining:
 
-  - 
+  - Overall: Be sure to use jQuery for implementing new requirements
+  - "Show" resource: a list_item
+  - "Index" resource: list_items in wish list/index of user Selections.
+  - Include at least one has_many relationship: same as Index
+  - Create a resource: Create a new list_item on wish list
+  - Translate JSON responses into JS Model Objects: ???
+  - Ensure at least one of the JS model objects has at least one method added by my code to the prototype: ??
 
 Nice to have/next version/future versions:
   - Authorizations

@@ -14,6 +14,7 @@ class ListsController < ApplicationController
 
   def show
     @item = @list.items.build
+    @list_items = @list.list_items
     respond_to do |format|
       format.html
       format.json { render json: @list, include: ['list_items'] }
