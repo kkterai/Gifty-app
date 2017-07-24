@@ -1,3 +1,5 @@
+<!-- if user is the current user, they see their own wish list -->
+
 <% if @list.id == current_user.id %>
   <h1> My Wish List </h1>
 
@@ -5,7 +7,8 @@
     Add Items  <%= f.text_field :name %>
       <%= f.submit style: "display: none" %>
   <% end %></p>
-
+  
+<!-- if user is NOT the current user, they see other users' wish list -->
 <% else %>
   <h2> <%= @list.user.username%>'s Wishlist </h2>
 <% end %>
