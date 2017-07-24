@@ -26,6 +26,7 @@
     <% end %>
 <% end %>
 
+<!--list items are managed depending upon whether the user is the list owner or not -->
   </tr>
   <% @list.list_items.each do |li| %>
     <tr>
@@ -47,9 +48,11 @@
           li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
           <% end %>
         <% end -%>
-    <% end %>
+      <% end %>
     </div>
   </tr>
+
+  <!-- Other users are able to add list items to their shopping lists -->
   <tr>  <% if @list.id != current_user.id %>
       <td> </td>
       <td> </td>
