@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   def create
     @item = @list.items.build(item_params)
      if @item.save
-      
+
        render 'items/show', :layout => false
      else
        flash[:alert] = "please try again"
