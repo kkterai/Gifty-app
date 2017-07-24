@@ -2,10 +2,9 @@ class ItemsController < ApplicationController
   before_action :authorize, :set_list
 
   def create
-    @item = @list.items.build(item_params)
-     if @item.save
-
-       render 'items/show', :layout => false
+    @list.items.build(item_params)
+     if @list.save
+       redirect_to @list
      else
        flash[:alert] = "please try again"
        redirect_to @list
