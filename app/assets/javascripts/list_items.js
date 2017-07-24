@@ -18,7 +18,8 @@ $(function() {
             url: url,
             data: data,
             success: function(response) {
-                debugger
+                var $ol = $("div.list_items ol")
+                $ol.append(response);
             }
         })
         //  3. take the data from the AJAX POST request and create the corresponding list_item

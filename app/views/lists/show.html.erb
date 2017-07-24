@@ -6,7 +6,7 @@
   <p><%= form_for([@list, @item]) do |f| %>
     Add Items  <%= f.text_field :name %>
       <%= f.submit style: "display: none" %>
-  <% end %></p>
+    <% end %></p>
   
 <!-- if user is NOT the current user, they see other users' wish list -->
 <% else %>
@@ -14,13 +14,14 @@
 <% end %>
 
 <br>
-<%= form_tag('/home') do -%>
+<%= form_tag('/home') do -%> <!-- When looking at other users' wish lists, the form will post to current user's shopping list -->
+
 <table>
   <% if !@list.list_items.empty? %>
   <tr>
     <th> Description </th>
     <th> Purchased </th>
-    <% if @list.id != current_user.id %>
+    <% if @list.id != current_user.id %> <!-- i.e. "if the current user owns this list..." -->
     <th> Add to list </th>
     <% end %>
 <% end %>
@@ -28,24 +29,26 @@
   </tr>
   <% @list.list_items.each do |li| %>
     <tr>
-    <!-- <div id="result"> new list_items to go here </div> -->
-      <td><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></td>
-      <% if li.purchased == true %>
-        <td>Yes!</td>
-      <% else %>
-        <td>Not Yet</td>
-      <% end %>
-
-      <% if @list.id == current_user.id %>
-        <td><%= link_to "Remove", li, method: :delete, data: { confirm: "Are you sure?" } %></td>
-        <td><%= link_to "Add Details", edit_list_list_item_path(@list, li)  %></td>
-      <% else %>
-        <% if li.purchased != true %>
-          <td><%= check_box_tag "[list_item_ids][]",
-        li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
+      <div id="list_items">
+        <td><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></td>
+      
+        <% if li.purchased == true %>
+          <td>Yes!</td>
+        <% else %>
+          <td>Not Yet</td>
         <% end %>
-      <% end -%>
+
+        <% if @list.id == current_user.id %>
+          <td><%= link_to "Remove", li, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          <td><%= link_to "Add Details", edit_list_list_item_path(@list, li)  %></td>
+        <% else %>
+          <% if li.purchased != true %>
+            <td><%= check_box_tag "[list_item_ids][]",
+          li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
+          <% end %>
+        <% end -%>
     <% end %>
+    </div>
   </tr>
   <tr>  <% if @list.id != current_user.id %>
       <td> </td>

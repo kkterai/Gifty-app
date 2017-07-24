@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :authorize
+  before_action :authorize, :set_list
 
   def create
-    @list = List.find_by(id: params[:list_id])
-    @list.items.build(item_params)
-     if @list.save
-       redirect_to @list
+    @item = @list.items.build(item_params)
+     if @item.save
+      
+       render 'items/show', :layout => false
      else
        flash[:alert] = "please try again"
        redirect_to @list
@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name)
+  end
+
+  def set_list
+    @list = List.find_by(id: params[:list_id])
   end
 
 end
