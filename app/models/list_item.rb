@@ -4,6 +4,7 @@ class ListItem < ApplicationRecord
   belongs_to :item
   has_many :selections
   has_many :users, through: :selections
+  has_many :comments
 
   serialize :details
   serialize :purchased
