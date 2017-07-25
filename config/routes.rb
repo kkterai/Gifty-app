@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   resources :list_items do
-    resources :comments
+    resources :comments 
   end
 
 end

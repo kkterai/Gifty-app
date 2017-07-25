@@ -14,7 +14,11 @@ class CommentsController < ApplicationController
     private
 
     def set_list_item
-        @list_item = ListItem.find(params[:id])
+        if params[:id]
+            @list_item = ListItem.find(params[:id])
+        else
+            @list_item = ListItem.find(params[:list_item_id])
+        end
     end
 
     def comment_params

@@ -9,6 +9,7 @@ class ListItemsController < ApplicationController
   def show
     @list = current_user.list
     @comment = @list_item.comments.build
+    @comments = @list_item.comments
     respond_to do |format|
       format.html
       format.json {render json: @list_item, include: ['item'] }
@@ -37,7 +38,11 @@ class ListItemsController < ApplicationController
   private
 
   def set_list_item
-    @list_item = ListItem.find(params[:id])
+    if params[:id]
+        @list_item = ListItem.find(params[:id])
+    else
+        @list_item = ListItem.find(params[:list_item_id])
+    end
   end
 
   def list_item_params
