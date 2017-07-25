@@ -8,6 +8,7 @@ class ListItemsController < ApplicationController
 
   def show
     @list = current_user.list
+    @comment = @list_item.comments.build
     respond_to do |format|
       format.html
       format.json {render json: @list_item, include: ['item'] }
