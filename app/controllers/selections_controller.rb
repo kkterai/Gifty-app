@@ -11,6 +11,10 @@ class SelectionsController < ApplicationController
 
   def show
     @list_item = ListItem.find(@selection.list_item.id)
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @selection, include: ['list_item']}
+    end
   end
   
   def create
