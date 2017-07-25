@@ -13,6 +13,7 @@ class ListItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json {render json: @list_item, include: ['item'] }
+      format.json {render json: @comment, include: ['content'] }
     end
   end
 

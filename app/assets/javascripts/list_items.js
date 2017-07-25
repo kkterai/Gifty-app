@@ -9,19 +9,19 @@ $(function() {
         }
     }
         
-    console.log(data)
-    //     $.ajax({
-    //         type: "POST",
-    //         url: url,
-    //         data: data,
-    //         success: function(response) {
-    //             var $td = $("div#list_items td")
-    //             $td.append(response);
-    //         }
-    //     })
-    //     //  3. take the data from the AJAX POST request and create the corresponding list_item
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        success: function(response) {
+            $("#comment_content").val("");
+            var $ol = $("div.comments ol");
+            $ol.append(response);
+        }
+    })
+    //  3. take the data from the AJAX POST request and create the corresponding comment
 
-    //     // 4. Send back HTML/JSON/JS of the list_item that was added and inject it into the OL on the DOM
+    // 4. Send back HTML/JSON/JS of the comment that was added and inject it into the OL on the DOM
          e.preventDefault();
     })
 })
