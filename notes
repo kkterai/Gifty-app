@@ -44,6 +44,7 @@ Nice to have/next version/future versions:
     - Build class level method
     - Place in sidebar
   - Continue refining code
+    - Consider: Is list model really necessary?
 
 Bugs found:
 1. Logging in or signing up via Omniauth brings user to .../home#_=_ rather than the clean .../home url. This bug is not present when logging in via email.

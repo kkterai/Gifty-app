@@ -1,6 +1,15 @@
 class SelectionsController < ApplicationController
-  before_action :set_selection, only: [:update]
+  before_action :set_selection, only: [:show, :update]
 
+  def index
+    @selections = current_user.selections
+    @users = User.all
+  end
+
+  def show
+
+  end
+  
   def create
     list_item_ids = params["list_item_ids"]
     if list_item_ids
