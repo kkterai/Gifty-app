@@ -3,11 +3,14 @@ class SelectionsController < ApplicationController
 
   def index
     @selections = current_user.selections
-    @users = User.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @selections, include: ['list_items']}
+    end
   end
 
   def show
-
+    @list_item = ListItem.find(@selection.list_item.id)
   end
   
   def create

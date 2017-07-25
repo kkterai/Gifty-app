@@ -1,1 +1,14 @@
-selections show
+
+<h1><%= @selection.list_item.item.name %></h1>
+
+<h2> Why this would be a great gift </h2>
+<h3><%= @selection.list_item.details %></h3>
+
+Comments:
+<p><% @selection.list_item.comments.each do |comment| %></p>
+    <ul>
+        <li><%= comment.content %></li>
+    </ul>
+    <% end %>
+
+<%=link_to "Add Comment", selection_list_item_path(@selection,@list_item) %>
