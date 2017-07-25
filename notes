@@ -24,6 +24,7 @@ Remaining:
   - Create a resource: Create a new list_item on wish list
   - Translate JSON responses into JS Model Objects: ???
   - Ensure at least one of the JS model objects has at least one method added by my code to the prototype: ??
+  - Possibly render JSON associations for Selections and List Items
 
 Nice to have/next version/future versions:
   - Authorizations

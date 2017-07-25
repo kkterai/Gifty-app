@@ -32,4 +32,8 @@ Rails.application.routes.draw do
     resources :list_items, only: [:show]
   end
 
+  resources :list_items do
+    resources :comments
+  end
+
 end

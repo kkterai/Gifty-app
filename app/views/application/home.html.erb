@@ -10,8 +10,8 @@
     <% @selections.each do |selection| %>
       <tr>
         <% item = selection.list_item.item %>
-        <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %></td>
-
+        <td><%= link_to "#{item.name}", selection_list_item_path(selection, item) %><br> 
+         <%# Alternative link: <a class="js-more" data-id="<%= selection.id %><%#= "#{item.name}" need to fix this %>
         <td><%= link_to "#{selection.wishlist_owner.username}",         list_path(selection.list_item.list) %></td>
 
           <% if selection.list_item.purchased == true %>
