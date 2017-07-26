@@ -1,7 +1,11 @@
 'use strict'
 
-$(function () {
+// Expand each wish list item for more details
+
+$(() => {
   $(".js-more").on('click', function() {
-    console.log($(this).data['list_items'][0]['id'])
-  })
+    console.log(this)
+    })
 });
+
+// Then show each one individually, scroll using "next" link 
