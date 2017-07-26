@@ -12,8 +12,7 @@ class ListItemsController < ApplicationController
     @comments = @list_item.comments
     respond_to do |format|
       format.html
-      format.json {render json: @list_item, include: ['item'] }
-      format.json {render json: @comment, include: ['content'] }
+      format.json {render json: @list_item }
     end
   end
 

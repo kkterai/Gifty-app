@@ -1,0 +1,62 @@
+<!-- if user is the current user, they see their own wish list -->
+
+<% if @list.id == current_user.id %>
+  <h1> My Wish List </h1>
+
+  <p><%= form_for([@list, @item]) do |f| %>
+    Add Items  <%= f.text_field :name %>
+      <%= f.submit style: "display: none" %>
+    <% end %></p>
+  
+<!-- if user is NOT the current user, they see other users' wish list -->
+<% else %>
+  <h1> <%= @list.user.username%>'s Wishlist </h1>
+<% end %>
+
+<br>
+<%= form_tag('/home') do -%> <!-- When looking at other users' wish lists, the form will post to current user's shopping list -->
+
+<table>
+  <% if !@list.list_items.empty? %>
+  <tr>
+    <th> Description </th>
+    <th> Purchased </th>
+    <% if @list.id != current_user.id %> <!-- i.e. "if the current user owns this list..." -->
+    <th> Add to list </th>
+    <% end %>
+<% end %>
+
+<!--list items are managed depending upon whether the user is the list owner or not -->
+  </tr>
+  <% @list.list_items.each do |li| %>
+    <tr>
+        <td><%= link_to "#{li.item.name}", list_list_item_path(@list,li) %></td>
+      
+        <% if li.purchased == true %>
+          <td>Yes!</td>
+        <% else %>
+          <td>Not Yet</td>
+        <% end %>
+
+        <% if @list.id == current_user.id %>
+          <td><%= link_to "Remove", li, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          <td><%= link_to "Add Details", edit_list_list_item_path(@list, li)  %></td>
+        <% else %>
+          <% if li.purchased != true %>
+            <td><%= check_box_tag "[list_item_ids][]",
+          li.id, (checked = true if li.selection_ids.include?(li.id)) %></td>
+          <% end %>
+        <% end -%>
+      <% end %>
+  </tr>
+
+  <!-- Other users are able to add list items to their shopping lists -->
+  <tr>  <% if @list.id != current_user.id %>
+      <td> </td>
+      <td> </td>
+      <td><%= submit_tag 'Add to My List' %></td>
+  </tr>  <% end %>
+  <% end %>
+</table>
+
+<!-- 1. Hijack event 2. Fire an AJAX request to get data 3. Place data in the DOM --> 
