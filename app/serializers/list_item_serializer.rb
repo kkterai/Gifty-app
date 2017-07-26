@@ -1,5 +1,5 @@
 class ListItemSerializer < ActiveModel::Serializer
-  attributes :purchased, :details
+  attributes :id, :purchased, :details
 
   belongs_to :item
   has_many :comments
