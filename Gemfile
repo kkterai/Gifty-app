@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth', '>= 1.6.0'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'pry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
