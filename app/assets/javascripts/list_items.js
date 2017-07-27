@@ -27,11 +27,21 @@ $(function() {
      let id = $(this).data("id");
 
      $.get("/list_items/" + id + ".json", function(listItemObject){
-        let nextIndex
-        let liArray = listItemObject.list_attributes
+        var nextIndex;
+        var liArray = listItemObject.list_attributes;
+        var currentIndex;
 
+        for (var i = 0; i < liArray.length; i++) {
+            if (liArray[i].id === parseInt($('.js-next').attr('data-id'))) {
+                currentIndex = i + 1;
+            }
+        }
+
+        
+
+    });
         // I would like to know if the top level list item matches the first nested list item. If so, view the next list_item, at index 1
-        });
+  
     //    var purchased = listItemObject.purchased ? "<p><strong>This Gift is on its way!</strong></p>" : "<p><strong>Not purchased</strong></p>"
        
     //    $("#purchase-" + id).html(purchased);
@@ -47,4 +57,3 @@ $(function() {
     //    $("#list-item-" + id + "-comments").html(commentList);
         });
     });
- });
