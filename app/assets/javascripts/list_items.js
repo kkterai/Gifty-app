@@ -23,6 +23,28 @@ $(function() {
 
 $(function() {
     $('.js-next').on('click', function(e) {
-    debugger
-  });
-});
+
+     let id = $(this).data("id");
+
+     $.get("/list_items/" + id + ".json", function(listItemObject){
+        let nextIndex
+        let liArray = listItemObject.list_attributes
+
+        // I would like to know if the top level list item matches the first nested list item. If so, view the next list_item, at index 1
+        });
+    //    var purchased = listItemObject.purchased ? "<p><strong>This Gift is on its way!</strong></p>" : "<p><strong>Not purchased</strong></p>"
+       
+    //    $("#purchase-" + id).html(purchased);
+    //    $("#body-" + id).html(listItemObject.details);
+        
+    //    var comments = listItemObject.comments;
+    //    var commentList = "";
+
+    //    comments.forEach(function(comment) {
+    //     commentList += '<li class="js-comment" data-id="' + comment["id"] + '">' + comment.content + '</li>';
+    //    });
+
+    //    $("#list-item-" + id + "-comments").html(commentList);
+        });
+    });
+ });
