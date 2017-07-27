@@ -5,7 +5,6 @@ class ListSerializer < ActiveModel::Serializer
   #has_many :list_items
   
   def list_items
-    # binding.pry
     object.list_items.map do |li|
       {
         id: li.id,

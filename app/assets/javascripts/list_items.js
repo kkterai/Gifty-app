@@ -15,7 +15,8 @@ $(function() {
             $ol.append(response);
         }
     })
-
          e.preventDefault();
     })
 })
+
+// Show each list_item individually, scroll using "next" link 

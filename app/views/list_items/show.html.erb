@@ -1,11 +1,13 @@
 <h1><%= "#{@list_item.item.name}" %></h1>
 
+<a href="#" class="js-next" data-id="<%=@list_item.id%>">Next Item</a>
+
 <h2> Why this would be a great gift </h2>
 <h3><%= @list_item.details %></h3>
 
 <% if current_user.list.id == @list_item.list_id %>
-<p><button> <%= link_to "Add details", edit_list_list_item_path(@list) %> </button></p>
-<p><button> <%= link_to "Back to Wish List", list_path(@list) %> </button></p>
+<p><button> <%= link_to "Add details", edit_list_list_item_path(@list) %> </button>
+<button> <%= link_to "Back to Wish List", list_path(@list) %> </button></p>
 <% end %>
 
 Comments:

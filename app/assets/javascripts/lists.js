@@ -24,4 +24,3 @@ $(() => {
   });
 });
 
-// Then show each one individually, scroll using "next" link 
