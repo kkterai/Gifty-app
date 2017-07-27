@@ -27,17 +27,16 @@ $(function() {
      let id = $(this).data("id");
 
      $.get("/list_items/" + id + ".json", function(listItemObject){
-        var nextIndex;
         var liArray = listItemObject.list_attributes;
-        var currentIndex;
+        var nextIndex;
 
         for (var i = 0; i < liArray.length; i++) {
             if (liArray[i].id === parseInt($('.js-next').attr('data-id'))) {
-                currentIndex = i + 1;
+                nextIndex = i + 1;
             }
         }
 
-        
+
 
     });
         // I would like to know if the top level list item matches the first nested list item. If so, view the next list_item, at index 1
