@@ -12,8 +12,7 @@
 
 Comments:
 
-<div class = "comments">
- <%= render partial: "comments",collection: @comments %>
+<div id= "list-item-<%= @list_item.id %>-comments">
 </div>
 
 <%= form_for [@list_item,@comment] do |f| %>

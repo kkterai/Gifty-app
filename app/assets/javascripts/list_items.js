@@ -4,7 +4,7 @@
 
 $(function() {
     $("#new_comment").on("submit", function(e) {
-        
+    e.preventDefault();
     $.ajax({
         type: "POST",
         url: this.action,
@@ -14,9 +14,15 @@ $(function() {
             var $ol = $("div.comments ol");
             $ol.append(response);
         }
-    })
-         e.preventDefault();
-    })
-})
+        //success deprecated?
+      });
+   });
+});
 
 // Show each list_item individually, scroll using "next" link 
+
+$(function() {
+    $('.js-next').on('click', function(e) {
+    debugger
+  });
+});
