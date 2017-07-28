@@ -1,17 +1,9 @@
 'use strict'
 
 var listItemsValues
-// Create an array of all List Items id's - index will be determined by the data-id of the specific users list_id's
-// $(() => {
-//   $.getJSON('/list_items.json', function (data) {
-//     listItemsValues = $.map(data, function (e) {
-//         return e.id
-//     });
-//   });
-// });
+
 $(() => {
     $(window).load(function() {
-        console.log(this)
         var id = $('#js-load').attr('data-id')
         $.get("/list_items/" + id + ".json", function(listItemObject){
         listItemsValues = listItemObject.list_attributes;
@@ -19,11 +11,9 @@ $(() => {
     });
 });
 
-
 // Add new comments to wish list items
 
-$(function() {
-    $("#new_comment").on("submit", function(e) {
+$("#new_comment").on("submit", function(e) {
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -34,9 +24,7 @@ $(function() {
             var $ol = $("div.comments ol");
             $ol.append(response);
         }
-        //success deprecated?
-      });
-   });
+    });
 });
 
 // Show each list_item individually, scroll using "next" link 
