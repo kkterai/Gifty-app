@@ -40,15 +40,18 @@ $(function() {
         var nextIndex
         var dataIdIndex = currentArrayIndex()
 
-    if (dataIdIndex === listItemsValues.length - 1)
-        nextIndex = 0
-    else
-        nextIndex = dataIdIndex + 1
+        if (dataIdIndex === listItemsValues.length - 1)
+            nextIndex = 0
+        else
+            nextIndex = dataIdIndex + 1
  
-    $.get("/list_items/" + listItemsValues[nextIndex].id + ".json", function(listItemObject) {
+        var id = listItemsValues[nextIndex].id
+
+    $.get("/list_items/" + id + ".json", function(listItemObject) {
+        $(".js-next").attr("data-id",id)
         $('#item-name').html(listItemObject.item_name)
         $("#li-details").html(listItemObject.details)
-        
+
         var comments = listItemObject.comments;
         var commentList = "";
 
