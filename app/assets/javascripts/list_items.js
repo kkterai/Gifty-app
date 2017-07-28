@@ -11,6 +11,13 @@ $(() => {
     });
 });
 
+var currentArrayIndex = function() {
+    for (var i = 0; i < listItemsValues.length; i++) { 
+            if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
+                return i
+        }
+    }
+
 // Add new comments to wish list items
 
 $("#new_comment").on("submit", function(e) {
@@ -28,36 +35,33 @@ $("#new_comment").on("submit", function(e) {
 });
 
 // Show each list_item individually, scroll using "next" link 
-
+$(function() {
     $('.js-next').on('click', function() {
-        let nextIndex
-        debugger
-        let dataIdIndex = listItemsValues.indexOf(parseInt($('.js-next').attr('data-id')))
-        if (dataIdIndex === listItemsValues.length - 1)
-            nextIndex = 0
-        else
-            nextIndex = dataIdIndex + 1
-    //  
-    //     $.get("/list_items/" + liArray[nextIndex].id + ".json", function(listItemObject) {
-    //         $('#item-name').html(listItemObject.item_name)
-    //         $("#li-details").html(listItemObject.details)
-    //     })
-    });
+        var nextIndex
+        var dataIdIndex = currentArrayIndex()
+
+    if (dataIdIndex === listItemsValues.length - 1)
+        nextIndex = 0
+    else
+        nextIndex = dataIdIndex + 1
+ 
+    $.get("/list_items/" + listItemsValues[nextIndex].id + ".json", function(listItemObject) {
+        $('#item-name').html(listItemObject.item_name)
+        $("#li-details").html(listItemObject.details)
         
-        // I would like to know if the top level list item matches the first nested list item. If so, view the next list_item, at index 1
-  
-    //    var purchased = listItemObject.purchased ? "<p><strong>This Gift is on its way!</strong></p>" : "<p><strong>Not purchased</strong></p>"
+        var comments = listItemObject.comments;
+        var commentList = "";
+
+        comments.forEach(function(comment) {
+            commentList += '<li class="js-comment" data-id="' + comment["id"] + '">' + comment.content + '</li>';
+        });
+
+        $("#list-item-" + id + "-comments").html(commentList);
+
+        var purchased = listItemObject.purchased ? "<p><strong>This Gift is on its way!</strong></p>" : "<p><strong>Not purchased</strong></p>"
        
-    //    $("#purchase-" + id).html(purchased);
-    //    $("#body-" + id).html(listItemObject.details);
-        
-    //    var comments = listItemObject.comments;
-    //    var commentList = "";
-
-    //    comments.forEach(function(comment) {
-    //     commentList += '<li class="js-comment" data-id="' + comment["id"] + '">' + comment.content + '</li>';
-    //    });
-
-    //    $("#list-item-" + id + "-comments").html(commentList);
-        // });
-
+        $("#purchase-" + id).html(purchased);
+      
+        });
+    });
+});
