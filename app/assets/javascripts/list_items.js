@@ -48,22 +48,23 @@ $(function() {
         var id = listItemsValues[nextIndex].id
 
     $.get("/list_items/" + id + ".json", function(listItemObject) {
+        var purchased = listItemObject.purchased ? " (This Gift is on its way!)" : "  "
         $(".js-next").attr("data-id",id)
-        $('#item-name').html(listItemObject.item_name)
+        $("#js-load").attr("data-id",id)
+
+        $('#item-name').html(listItemObject.item_name + purchased)
         $("#li-details").html(listItemObject.details)
 
         var comments = listItemObject.comments;
         var commentList = "";
-
+       
         comments.forEach(function(comment) {
-            commentList += '<li class="js-comment" data-id="' + comment["id"] + '">' + comment.content + '</li>';
+            if (comment.content !== null) {
+                commentList += '<li class="js-comment" >' + comment.content + '</li>';
+            }
         });
 
-        $("#list-item-" + id + "-comments").html(commentList);
-
-        var purchased = listItemObject.purchased ? "<p><strong>This Gift is on its way!</strong></p>" : "<p><strong>Not purchased</strong></p>"
-       
-        $("#purchase-" + id).html(purchased);
+        $(".comment-list").html(commentList);
       
         });
     });

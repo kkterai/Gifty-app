@@ -15,8 +15,10 @@ $(() => {
        var commentList = "";
 
        comments.forEach(function(comment) {
-        commentList += '<li class="js-comment" data-id="' + comment["id"] + '">' + comment.content + '</li>';
-       });
+            if (comment.content !== null) {
+                commentList += '<li class="js-comment" data-id="' + comment["id"] + '">' + comment.content + '</li>';
+            }
+        });
 
        $("#list-item-" + id + "-comments").html(commentList);
 
