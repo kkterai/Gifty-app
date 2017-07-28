@@ -19,7 +19,10 @@ Comments:
 <% end %>
 </p>
 
-<%= render partial: "comments",collection: @comments %>
+
 <div id= "list-item-<%= @list_item.id %>-comments">
+   <ul>
+      <%= render partial: "comments",collection: @comments %>
+   </ul>
 </div>
 
