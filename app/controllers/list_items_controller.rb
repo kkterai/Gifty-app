@@ -2,6 +2,12 @@ class ListItemsController < ApplicationController
   before_action :authorize
   before_action :set_list_item, only: [:show, :update, :edit]
 
+  
+  def index
+    @list_items = ListItem.all
+    render json: @list_items
+  end
+
   def create
   
   end

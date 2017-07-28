@@ -1,5 +1,25 @@
 'use strict'
 
+var listItemsValues
+// Create an array of all List Items id's - index will be determined by the data-id of the specific users list_id's
+// $(() => {
+//   $.getJSON('/list_items.json', function (data) {
+//     listItemsValues = $.map(data, function (e) {
+//         return e.id
+//     });
+//   });
+// });
+$(() => {
+    $(window).load(function() {
+        console.log(this)
+        var id = $('#js-load').attr('data-id')
+        $.get("/list_items/" + id + ".json", function(listItemObject){
+        listItemsValues = listItemObject.list_attributes;
+        });
+    });
+});
+
+
 // Add new comments to wish list items
 
 $(function() {
@@ -21,24 +41,21 @@ $(function() {
 
 // Show each list_item individually, scroll using "next" link 
 
-$(function() {
-    $('.js-next').on('click', function(e) {
-
-     let id = $(this).data("id");
-
-     $.get("/list_items/" + id + ".json", function(listItemObject){
-        var liArray = listItemObject.list_attributes;
-        var nextIndex;
-
-        for (var i = 0; i < liArray.length; i++) {
-            if (liArray[i].id === parseInt($('.js-next').attr('data-id'))) {
-                nextIndex = i + 1;
-            }
-        }
-
-
-
+    $('.js-next').on('click', function() {
+        let nextIndex
+        debugger
+        let dataIdIndex = listItemsValues.indexOf(parseInt($('.js-next').attr('data-id')))
+        if (dataIdIndex === listItemsValues.length - 1)
+            nextIndex = 0
+        else
+            nextIndex = dataIdIndex + 1
+    //  
+    //     $.get("/list_items/" + liArray[nextIndex].id + ".json", function(listItemObject) {
+    //         $('#item-name').html(listItemObject.item_name)
+    //         $("#li-details").html(listItemObject.details)
+    //     })
     });
+        
         // I would like to know if the top level list item matches the first nested list item. If so, view the next list_item, at index 1
   
     //    var purchased = listItemObject.purchased ? "<p><strong>This Gift is on its way!</strong></p>" : "<p><strong>Not purchased</strong></p>"
@@ -54,5 +71,5 @@ $(function() {
     //    });
 
     //    $("#list-item-" + id + "-comments").html(commentList);
-        });
-    });
+        // });
+

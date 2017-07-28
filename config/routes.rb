@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback'  => 'sessions#create_provider'
   get '/logout' => 'sessions#destroy'
 
-  resources :list_items, only: [:show,:update, :destroy]
+  resources :list_items
 
   resources :lists do
    resources :items, only: [:create]
