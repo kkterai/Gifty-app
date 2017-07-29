@@ -32,13 +32,11 @@ function capitalize(username) {
       return ary
     }
     var array = nameArray(username)
-    debugger
     var capitalized = "";
     for (var i=0; i < array.length; i++) {
         var str = array[i]
         var remainingChars = str ? str.slice(1) : str.slice(1).toLowerCase();
         capitalized = capitalized + " " + str.charAt(0).toUpperCase() + remainingChars;
-        debugger
     }
  return capitalized;
 };
