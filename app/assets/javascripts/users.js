@@ -14,21 +14,31 @@ $(() => {
 class User {
   constructor (id, username) {
     this.id = id
-    this.username = username
+    this.username = capitalize(username)
   }
-
   userDescription (){
-    return `<a href='/items/${this.id}'>${this.username}</a>` 
+    return `<a href='/lists/${this.id}'>${this.username}</a>` 
   }
 }
 
-// function capitalize(array) {
-//     var capitalized = "";
-//     debugger
-//     for (var i=0; i < array.length; i++) {
-//         var remainingChars = array[i] ? str.slice(1) : str.slice(1).toLowerCase();
-//         capitalized = capitalized + " " + str.charAt(0).toUpperCase() + remainingChars;
-//         debugger
-//     }
-//  return capitalized;
-// };
+function capitalize(username) {
+    function nameArray(username) { 
+        var ary;
+        if (username.includes("_")) {
+            ary = username.split("_") 
+        } else {
+            ary = username.split(".");
+        } 
+      return ary
+    }
+    var array = nameArray(username)
+    debugger
+    var capitalized = "";
+    for (var i=0; i < array.length; i++) {
+        var str = array[i]
+        var remainingChars = str ? str.slice(1) : str.slice(1).toLowerCase();
+        capitalized = capitalized + " " + str.charAt(0).toUpperCase() + remainingChars;
+        debugger
+    }
+ return capitalized;
+};
