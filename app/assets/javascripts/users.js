@@ -40,3 +40,11 @@ function capitalize(username) {
     }
  return capitalized;
 };
+
+$("#search").keyup(function () {
+    alert("key up!!")
+    var userInput = $(this).val();
+    $("#users").map(function (index, value) {
+        $(value).toggle($(value).text().toLowerCase().indexOf(userInput) >= 0);
+    });
+});

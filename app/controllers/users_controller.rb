@@ -23,11 +23,6 @@ class UsersController < ApplicationController
       f.html
       f.json {render json: @users}
     end
-    if params[:search]
-      @users = User.search(params[:search]).order("username ASC")
-    else
-      @users = User.all.order('username ASC')
-    end
   end
 
   private
