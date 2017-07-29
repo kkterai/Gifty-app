@@ -22,7 +22,7 @@ Comments:
 
 <div id= "list-item-comments">
    <ul class="comment-list">
-      <%= render partial: "comments", collection: @comments %>
+      <%= render partial: "comments", locals: {comments: @comments} %>
    </ul>
 </div>
 

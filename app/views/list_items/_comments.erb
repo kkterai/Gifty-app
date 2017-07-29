@@ -1,2 +1,7 @@
 
-    <li><%= comments.content %></li>
+   <% comments.each do |comment| %>
+       <% if comment.content != nil %>
+           <li><%= comment.content %></li>
+       <% end %>
+   <% end %>   
+
