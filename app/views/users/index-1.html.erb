@@ -1,0 +1,16 @@
+<h1>Search for your friends!</h1>
+
+<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Friends" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<% if @users.present? %>
+<% @users.each do |user| %>
+    <% unless user == current_user %>
+    <p><%= link_to "#{user.username}", "/lists/#{user.id}" %></p>
+    <% end %>
+  <% end %>
+<% else %>
+ <p>There is no one by the name of <%= params[:search] %>. Try again!</p>
+<% end %>

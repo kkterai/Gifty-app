@@ -49,16 +49,20 @@ $(function() {
 
     $.get("/list_items/" + id + ".json", function(listItemObject) {
         var purchased = listItemObject.purchased ? " (This Gift is on its way!)" : "  "
+        $(".comment-list").html("");
+
         $(".js-next").attr("data-id",id)
         $("#js-load").attr("data-id",id)
+        $(".new_comment").attr("action","/list_items/" + id + "/comments")
 
         $('#item-name').html(listItemObject.item_name + purchased)
         $("#li-details").html(listItemObject.details)
 
         var comments = listItemObject.comments;
+        var uniqueComments = [...new Set(comments)]
         var commentList = "";
        
-        comments.forEach(function(comment) {
+        uniqueComments.forEach(function(comment) {
             if (comment.content !== null) {
                 commentList += '<li class="js-comment" >' + comment.content + '</li>';
             }
