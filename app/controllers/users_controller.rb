@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.order("username ASC")
     respond_to do |f|
       f.html
       f.json {render json: @users}

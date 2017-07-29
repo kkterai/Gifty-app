@@ -41,10 +41,23 @@ function capitalize(username) {
  return capitalized;
 };
 
-$("#search").keyup(function () {
-    alert("key up!!")
-    var userInput = $(this).val();
-    $("#users").map(function (index, value) {
-        $(value).toggle($(value).text().toLowerCase().indexOf(userInput) >= 0);
-    });
-});
+$(() => {
+function myFunction() {
+    // Declare variables
+    var input, filter, div, p, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    div = document.getElementById("#users");
+    p = div.getElementsByTagName('p');
+    
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < p.length; i++) {
+        a = p[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            p[i].style.display = "";
+        } else {
+            p[i].style.display = "none";
+        }
+     }
+   }
+}); 
