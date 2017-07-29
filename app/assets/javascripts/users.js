@@ -29,13 +29,13 @@ function capitalize(username) {
         } else {
             ary = username.split(".");
         } 
-      return ary
+      return ary;
     }
     var array = nameArray(username)
     var capitalized = "";
     for (var i=0; i < array.length; i++) {
-        var str = array[i]
-        var remainingChars = str ? str.slice(1) : str.slice(1).toLowerCase();
+        var str = array[i];
+        var remainingChars = str.slice(1);
         capitalized = capitalized + " " + str.charAt(0).toUpperCase() + remainingChars;
     }
  return capitalized;
