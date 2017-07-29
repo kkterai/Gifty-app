@@ -128,7 +128,7 @@ button {
 
 textarea {
 	width: 600px;
-	height: 85px;
+	height: 75px;
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;
@@ -140,6 +140,10 @@ textarea {
 	position: relative;
 	z-index: 2;
 	border-top: 1px solid #e6e6e6;
+}
+
+#li-details {
+  width: 600px;
 }
 
 .footer {

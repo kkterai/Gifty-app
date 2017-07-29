@@ -59,10 +59,9 @@ $(function() {
         $("#li-details").html(listItemObject.details)
 
         var comments = listItemObject.comments;
-        var uniqueComments = [...new Set(comments)]
         var commentList = "";
        
-        uniqueComments.forEach(function(comment) {
+        comments.forEach(function(comment) {
             if (comment.content !== null) {
                 commentList += '<li class="js-comment" >' + comment.content + '</li>';
             }
