@@ -1,17 +1,10 @@
 'use strict'
 
-
-function userDescription (){
-    return `<a href='/items/${this.id}'>${this.username}</a>` 
-  }
-
-
 $(() => {
   $.getJSON('/users', function (data) {
     var users = $()
     data.forEach(u => {
       var user = new User(u.id, u.username)
-      debugger
       users = users.add(`<p>${user.userDescription()}</p>`)
     })
     $('#users').html(users)
@@ -22,6 +15,10 @@ class User {
   constructor (id, username) {
     this.id = id
     this.username = username
+  }
+
+  userDescription (){
+    return `<a href='/items/${this.id}'>${this.username}</a>` 
   }
 }
 
