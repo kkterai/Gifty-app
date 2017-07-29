@@ -4,12 +4,15 @@
   <input id="search" type="text" name="search" placeholder="Search..">
 </form>
 
-<% if @users.present? %>
-<% @users.each do |user| %>
-    <% unless user == current_user %>
-    <p><%= link_to "#{user.username}", "/lists/#{user.id}" %></p>
-    <% end %>
-  <% end %>
-<% else %>
- <p>There is no one by the name of <%= params[:search] %>. Try again!</p>
-<% end %>
+<div id="users"></div>
+
+
+<!-- <% if @users.present? %> -->
+<!-- <% @users.each do |user| %> -->
+<!--     <% unless user == current_user %> -->
+<!--     <p><%= link_to "#{user.username}", "/lists/#{user.id}" %></p> -->
+<!--     <% end %> -->
+<!--   <% end %> -->
+<!-- <% else %> -->
+<!--  <p>There is no one by the name of <%= params[:search] %>. Try again!</p> -->
+<!-- <% end %> -->
