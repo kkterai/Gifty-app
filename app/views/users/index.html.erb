@@ -1,9 +1,8 @@
 <h1>Search for your friends!</h1>
 
-<%= form_tag(users_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Friends" %>
-<%= submit_tag "Search" %>
-<% end %>
+<form>
+  <input id="search" type="text" name="search" placeholder="Search..">
+</form>
 
 <% if @users.present? %>
 <% @users.each do |user| %>
