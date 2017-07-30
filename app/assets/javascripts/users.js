@@ -1,5 +1,20 @@
 'use strict'
 
+$(() => {
+   newUser();
+});
+
+function newUser() {
+ $.getJSON('/users', function (data) {
+    var users = $()
+    data.forEach(u => {
+      var user = new User(u.id, u.username)
+      users = users.add(`<p>${user.userDescription()}</p>`)
+    })
+    $('#users').html(users)
+  });
+}
+
 class User {
   constructor (id, username) {
     this.id = id
@@ -50,13 +65,3 @@ function capitalize(username) {
 //      }
 //    }
 
-$(document).ready(function() {
-    $.getJSON('/users', function (data) {
-    var users = $()
-    data.forEach(u => {
-      var user = new User(u.id, u.username)
-      users = users.add(`<p>${user.userDescription()}</p>`)
-    })
-    $('#users').html(users)
-  })
-});

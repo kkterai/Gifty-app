@@ -1,8 +1,20 @@
 'use strict'
-
-// Show each list_item individually, scroll using "next" link 
+ 
+var listItemsValues
 
 $(() => {
+    addNewComments();
+    nextListItem();
+});
+
+var currentArrayIndex = function() {
+    for (var i = 0; i < listItemsValues.length; i++) { 
+        if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
+            return i;
+    }
+}
+
+function nextListItem() {
     $(".js-next").on("click", function() {
         var id = $(".js-next").attr("data-id")
         $.get("/list_items/" + id + ".json", function(listItemObject) {
@@ -37,29 +49,20 @@ $(() => {
         
         });
     });
-});
-
-var listItemsValues
-
-var currentArrayIndex = function() {
-    for (var i = 0; i < listItemsValues.length; i++) { 
-        if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
-            return i;
-    }
 }
 
-// Add new comments to wish list items
-
-$("#new_comment").on("submit", function(e) {
-    e.preventDefault();
-    $.ajax({
-        type: "POST",
-        url: this.action,
-        data: $(this).serialize(),
-        success: function(response) {
-            $("#comment_content").val("");
-            var $ol = $("div.comments ol");
-            $ol.append(response);
-        }
+function addNewComments() {
+    $("#new_comment").on("submit", function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: this.action,
+            data: $(this).serialize(),
+            success: function(response) {
+                $("#comment_content").val("");
+                var $ol = $("div.comments ol");
+                $ol.append(response);
+            }
+        });
     });
-});
+}

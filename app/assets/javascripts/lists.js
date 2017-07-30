@@ -1,8 +1,11 @@
 'use strict'
 
-// Expand each wish list item for more details
-
 $(() => {
+  newItem()
+  expandListItem()
+ });
+
+function expandListItem() {
   $(".js-more").on('click', function() {
       var id = $(this).data("id");
      $.get("/list_items/" + id + ".json", function(listItemObject){
@@ -24,15 +27,13 @@ $(() => {
 
     });
   });
+}
 
-
-// Add new wish list items
-
-$("#new_item").on("submit", function(e) {
+function newItem() {
+ $("#new_item").on("submit", function(e) {
     $.post( `${this.action}`, function( data ) {
       debugger
       $( "#wish-list" ).html( data );
      });
-    });
-   
- });
+  });
+ }
