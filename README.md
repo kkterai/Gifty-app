@@ -4,8 +4,11 @@ Gifty is a Rails App to help you find gifts for friends. After signing up by eit
 
   - As a Gift Giver:
     - Find friends and view their wishlists
+    - Ask questions or make comments about the request
   - As a Gift Recipient
     - Add items to your wish list
+    - Elaborate on your request by adding details
+    - Respond to other's questions or comments
 
 ## Video walkthrough
 [Gifty Video walkthrough]
