@@ -53,4 +53,4 @@ This Web Application is available as open source under the terms of the [MIT Lic
    [Omniauth-facebook]: <https://github.com/mkdynamic/omniauth-facebook>
    [Figaro]: <https://github.com/laserlemon/figaro>
    [jQuery]: <http://jquery.com/>
-   [Gifty Video walkthrough]: <https://drive.google.com/open?id=0BxTfGFwB1IsudlJmMHZQVWRBWkU>
+   [Gifty Video walkthrough]: <https://drive.google.com/file/d/0BxTfGFwB1IsueXpxcW1aNENDQjQ/view?usp=sharing>

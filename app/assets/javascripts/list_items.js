@@ -2,7 +2,6 @@
 
 // Show each list_item individually, scroll using "next" link 
 
-
 $(() => {
     $(".js-next").on("click", function() {
         var id = $(".js-next").attr("data-id")
