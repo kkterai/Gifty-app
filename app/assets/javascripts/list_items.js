@@ -2,13 +2,12 @@
 
 var listItemsValues
 
-$(() => {
+$('#js-load').load(function() {
     var id = $('#js-load').attr('data-id')
     $.get("/list_items/" + id + ".json", function(listItemObject){
     listItemsValues = listItemObject.list_attributes;
     });
 });
-
 
 var currentArrayIndex = function() {
     for (var i = 0; i < listItemsValues.length; i++) { 
