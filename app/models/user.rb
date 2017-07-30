@@ -12,12 +12,5 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  def self.search(username)
-   if username.blank?
-     self.all
-   else
-     self.all.where("username LIKE ?", "%#{username}%")
-   end
- end
-
+# make method to format username
 end

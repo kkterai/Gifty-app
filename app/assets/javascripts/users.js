@@ -50,8 +50,8 @@ function capitalize(username) {
 //      }
 //    }
 
-$(() => {
-  $.getJSON('/users', function (data) {
+$(document).ready(function() {
+    $.getJSON('/users', function (data) {
     var users = $()
     data.forEach(u => {
       var user = new User(u.id, u.username)
@@ -59,5 +59,4 @@ $(() => {
     })
     $('#users').html(users)
   })
-//  $("#search").keyup(search);
-})
+});

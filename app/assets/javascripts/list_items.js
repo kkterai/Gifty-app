@@ -1,22 +1,54 @@
 'use strict'
 
-var listItemsValues
+// Show each list_item individually, scroll using "next" link 
 
-$('#js-load').load(function() {
-    debugger
-    var id = $('#js-load').attr('data-id')
-    $.get("/list_items/" + id + ".json", function(listItemObject){
-    listItemsValues = listItemObject.list_attributes;
-    });
-});
+    $(".js-next").on("click", function() {
+        var listItemsValues
+        var id = $(".js-next").attr("data-id")
+        $.get("/list_items/" + id + ".json", function(listItemObject) {
+            listItemsValues = listItemObject.list_attributes;
+        });
 
-var currentArrayIndex = function() {
-    for (var i = 0; i < listItemsValues.length; i++) { 
-            if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
-                return i
+        var currentArrayIndex = function() {
+            for (var i = 0; i < listItemsValues.length; i++) { 
+                if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
+                    return i;
+            }
         }
-    }
 
+        var nextIndex;
+        var dataIdIndex = currentArrayIndex();
+
+        if (dataIdIndex === listItemsValues.length - 1) {
+            nextIndex = 0
+        } else {
+            nextIndex = dataIdIndex + 1;
+        }
+        var id = listItemsValues[nextIndex].id;
+
+    $.get("/list_items/" + id + ".json", function(listItemObject) {
+        var purchased = listItemObject.purchased ? " (This Gift is on its way!)" : "  "
+        $(".comment-list").html("");
+
+        $(".js-next").attr("data-id",id)
+        $(".new_comment").attr("action","/list_items/" + id + "/comments")
+
+        $('#item-name').html(listItemObject.item_name + purchased)
+        $("#li-details").html(listItemObject.details)
+
+        var comments = listItemObject.comments;
+        var commentList = "";
+        
+        comments.forEach(function(comment) {
+            if (comment.content !== null) {
+                commentList += '<li class="js-comment" >' + comment.content + '</li>';
+            }
+        });
+
+        $(".comment-list").html(commentList);
+        
+        });
+    });
 
 // Add new comments to wish list items
 
@@ -31,44 +63,5 @@ $("#new_comment").on("submit", function(e) {
             var $ol = $("div.comments ol");
             $ol.append(response);
         }
-    });
-});
-
-// Show each list_item individually, scroll using "next" link 
-$(function() {
-    $('.js-next').on('click', function() {
-        var nextIndex
-        var dataIdIndex = currentArrayIndex()
-
-        if (dataIdIndex === listItemsValues.length - 1)
-            nextIndex = 0
-        else
-            nextIndex = dataIdIndex + 1
- 
-        var id = listItemsValues[nextIndex].id
-
-    $.get("/list_items/" + id + ".json", function(listItemObject) {
-        var purchased = listItemObject.purchased ? " (This Gift is on its way!)" : "  "
-        $(".comment-list").html("");
-
-        $(".js-next").attr("data-id",id)
-        $("#js-load").attr("data-id",id)
-        $(".new_comment").attr("action","/list_items/" + id + "/comments")
-
-        $('#item-name').html(listItemObject.item_name + purchased)
-        $("#li-details").html(listItemObject.details)
-
-        var comments = listItemObject.comments;
-        var commentList = "";
-       
-        comments.forEach(function(comment) {
-            if (comment.content !== null) {
-                commentList += '<li class="js-comment" >' + comment.content + '</li>';
-            }
-        });
-
-        $(".comment-list").html(commentList);
-      
-        });
     });
 });
