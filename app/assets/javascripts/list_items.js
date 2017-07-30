@@ -3,6 +3,7 @@
 var listItemsValues
 
 $('#js-load').load(function() {
+    debugger
     var id = $('#js-load').attr('data-id')
     $.get("/list_items/" + id + ".json", function(listItemObject){
     listItemsValues = listItemObject.list_attributes;
