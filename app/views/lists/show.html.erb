@@ -4,15 +4,23 @@
   <p><%= form_for([@list, @item]) do |f| %>
     Add Items  <%= f.text_field :name %>
       <%= f.submit style: "display: none" %>
-    <% end %></p>
+    <% end %>
+  </p>
+
+  <table>
+    <% @list_items.each do |list_item| %>
+      <%= render partial: "wishes", locals: {list_item: list_item} %>
+    <% end %>
+  </table>
   
 <!-- if user is NOT the current user, they see other users' wish list -->
 <% else %>
-  <h1> <%= @list.user.username%>'s Wishlist </h1>
-<% end %>
+  <h1> <%= @list.user.username %>'s Wishlist </h1>
 
-<table>
-<% @list_items.each do |list_item| %>
-  <%= render partial: "list_item", locals: {list_item: list_item} %>
+  <table>
+  <% @list_items.each do |list_item| %>
+    <%= render partial: "list_item", locals: {list_item: list_item} %>
+  <% end %>
+  </table>
+
 <% end %>
-</table>

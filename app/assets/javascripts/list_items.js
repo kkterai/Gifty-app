@@ -16,6 +16,7 @@ var currentArrayIndex = function() {
         }
     }
 
+
 // Add new comments to wish list items
 
 $("#new_comment").on("submit", function(e) {

@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authorize, :set_list
 
   def create
+    binding.pry
     @list.items.build(item_params)
      if @list.save
        redirect_to @list
