@@ -9,14 +9,9 @@ $(() => {
             listItemsValues = listItemObject.list_attributes;
         });
 
-        var nextIndex;
+        
         var dataIdIndex = currentArrayIndex();
-
-        if (dataIdIndex === listItemsValues.length - 1) {
-            nextIndex = 0
-        } else {
-            nextIndex = dataIdIndex + 1;
-        }
+        var nextIndex = (dataIdIndex === listItemsValues.length - 1) ?  0 : dataIdIndex + 1
         var id = listItemsValues[nextIndex].id;
 
     $.get("/list_items/" + id + ".json", function(listItemObject) {
@@ -52,7 +47,6 @@ var currentArrayIndex = function() {
             return i;
     }
 }
-
 
 // Add new comments to wish list items
 
