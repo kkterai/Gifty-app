@@ -2,19 +2,13 @@
 
 // Show each list_item individually, scroll using "next" link 
 
+
+$(() => {
     $(".js-next").on("click", function() {
-        var listItemsValues
         var id = $(".js-next").attr("data-id")
         $.get("/list_items/" + id + ".json", function(listItemObject) {
             listItemsValues = listItemObject.list_attributes;
         });
-
-        var currentArrayIndex = function() {
-            for (var i = 0; i < listItemsValues.length; i++) { 
-                if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
-                    return i;
-            }
-        }
 
         var nextIndex;
         var dataIdIndex = currentArrayIndex();
@@ -49,6 +43,17 @@
         
         });
     });
+});
+
+var listItemsValues
+
+var currentArrayIndex = function() {
+    for (var i = 0; i < listItemsValues.length; i++) { 
+        if (listItemsValues[i].id === parseInt($(".js-next").attr("data-id")))
+            return i;
+    }
+}
+
 
 // Add new comments to wish list items
 
