@@ -24,21 +24,15 @@ $(() => {
 
     });
   });
-});
+
 
 // Add new wish list items
 
-// $("#new_item").on("submit", function(e) {
-//     $.ajax({
-//         type: "POST",
-//         url: this.action,
-//         data: $(this).serialize(),
-//         success: function(response) {
-//             // $("#new_item").val("");
-//             var $div = $("#list_content");
-//             $div.append(response);
-//         }
-//     });
-//    e.preventDefault();
-//  });
-
+$("#new_item").on("submit", function(e) {
+    $.post( `${this.action}`, function( data ) {
+      debugger
+      $( "#wish-list" ).html( data );
+     });
+    });
+   
+ });

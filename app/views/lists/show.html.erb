@@ -8,9 +8,9 @@
   </p>
 
   <table>
-    <% @list_items.each do |list_item| %>
-      <%= render partial: "wishes", locals: {list_item: list_item} %>
-    <% end %>
+    <div id="wish-list">
+      <%= render partial: "wishes", locals: {list_items: @list_items } %>
+    </div>
   </table>
   
 <!-- if user is NOT the current user, they see other users' wish list -->

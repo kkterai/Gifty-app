@@ -1,10 +1,12 @@
-<h2><%= link_to list_item.item.name, list_item_path(list_item) %></h2>
+<% list_items.each do |list_item| %>
+  <h2><%= link_to list_item.item.name, list_item_path(list_item) %></h2>
 
-<div id="body-<%= list_item.id %>"><%= truncate list_item.details %></div>
+  <div id="body-<%= list_item.id %>"><%= truncate list_item.details %></div>
 
-<div id="purchase-<%= list_item.id %>"></div>
+  <div id="purchase-<%= list_item.id %>"></div>
 
-<ul id="list-item-<%= list_item.id %>-comments">
-  </ul>
-  
-<button class="js-more" data-id="<%= list_item.id %>">More...</button>
+  <ul id="list-item-<%= list_item.id %>-comments">
+    </ul>
+    
+  <button class="js-more" data-id="<%= list_item.id %>">More...</button>
+<% end %>
