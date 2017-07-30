@@ -1,17 +1,11 @@
 # Gifty
 
-Gifty is a Rails App to help you find gifts for friends and streamline shopping for those gifts. After signing up by either email or Facebook, you can:
+Gifty is a Rails App to help you find gifts for friends. After signing up by either email or Facebook, you can:
 
   - As a Gift Giver:
     - Find friends and view their wishlists
-    - Select friends' gifts to shop for
-    - View all of your selected gifts
-    - Mark items as purchased
-    - Unselect items to purchase
   - As a Gift Recipient
     - Add items to your wish list
-    - Delete items from your wish list
-    - Edit details on your wish list
 
 ## Video walkthrough
 [Gifty Video walkthrough]
@@ -43,6 +37,7 @@ Gifty uses a number of open source projects to work properly, including:
 * [Rails] - A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.
 * [Omniauth-facebook] - Facebook OAuth2 Strategy for OmniAuth.
 * [Figaro] - Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file.
+* [jQuery] - A fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler.
 
 
 ## Contributing
@@ -57,4 +52,5 @@ This Web Application is available as open source under the terms of the [MIT Lic
    [Rails]: <http://rubyonrails.org/>
    [Omniauth-facebook]: <https://github.com/mkdynamic/omniauth-facebook>
    [Figaro]: <https://github.com/laserlemon/figaro>
-    [Gifty Video walkthrough]: <https://drive.google.com/file/d/0BxTfGFwB1IsuYm81VW15NU0ydU0/view>
+   [jQuery]: <http://jquery.com/>
+   [Gifty Video walkthrough]: <https://drive.google.com/open?id=0BxTfGFwB1IsudlJmMHZQVWRBWkU>
